@@ -1,7 +1,7 @@
 #  HTML101 - Student form exercise
 
 ### Build a form that accepts a loan application. It must
-  have the following fields.
+### have the following fields.
 
   1. Applicant first name
   2. Applicant middle initial
