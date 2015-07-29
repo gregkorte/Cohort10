@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<title>Cohort 10 - HTML101</title>
+</head>
+<body>
+	<h1>Build a form that accepts a loan application</h1>
+	<div id="form">
+		<form>
+		<fieldset>
+			<legend>Personal Information</legend>
+			<input type="text" placeholder="First Name"/>
+			<input type="text" placeholder="MI"/>
+			<input type="text" placeholder="Last Name"/>
+			<input type="text" placeholder="Street Address"/>
+			<input type="text" placeholder="City"/>
+			<input type="text" placeholder="State"/>
+			<input type="text" placeholder="Zipcode"/>
+			<input type="text" placeholder="Occupation"/>
+		</fieldset>
+		<fieldset>
+			<legend>Employer Information</legend>
+			<input type="text" placeholder="Employer"/>
+			<input type="text" placeholder="Street Address"/>
+			<input type="text" placeholder="City"/>
+			<input type="text" placeholder="State"/>
+			<input type="text" placeholder="Zipcode"/>
+		</fieldset>
+		<fieldset>
+		<legend>Loan Information</legend>
+			<select>
+				<option disabled default>Type of Loan</option>
+				<option>Commercial</option>
+				<option>Real Estate</option>
+				<option>Personal</option>
+				<option>Mortgage</option>
+			</select>
+			<input type="number" min="1000" max="500000" step="1000"/>
+			<input type="radio" name="terms" checked/> 5 years
+			<input type="radio" name="terms"/> 15 years
+			<input type="radio" name="terms"/> 30 years
+			<input type="checkbox"/> I have a down payment
+			<input type="checkbox"/> Out-of-state Resident
+			<input type="checkbox"/> Married
+			<input type="checkbox"/> Loan will be co-signed
+		</fieldset>
+		<fieldset>
+		<legend>Comments</legend>
+			<textarea></textarea>
+		</fieldset>
+		<fieldset>
+		<legend>Contact Information</legend>
+			<input type="email" placeholder="Email Address"/>
+			<input type="phone" placeholder="Phone Number"/>
+		</fieldset>
+		</form>
+	</div>
+</body>
+</html>
