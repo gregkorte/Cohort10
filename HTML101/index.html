@@ -35,7 +35,8 @@
 				<option>Personal</option>
 				<option>Mortgage</option>
 			</select>
-			<input type="number" min="1000" max="500000" step="1000"/>
+			<input name="amountInput" type="number" min="10000" max="500000" step="10000" onchange="this.nextElementSibling.value=this.value"/>
+			<input name="amountRange" type="range" min="10000" max="500000" step="10000" onchange="this.previousElementSibling.value=this.value"/>
 			<input type="radio" name="terms" checked/> 5 years
 			<input type="radio" name="terms"/> 15 years
 			<input type="radio" name="terms"/> 30 years
