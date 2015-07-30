@@ -1,8 +1,12 @@
 body{
+	text-align: center;
 	background: #f3f3f3;
 }
 form {
+	margin:0 auto;
 	font-family: arial;
+	width: 95%;
+	text-align: left;
 }
 fieldset {
 	background:#e5e5e5;
@@ -36,9 +40,12 @@ input[type="number"] {
 }
 #personalInformation, #employerInformation {
 	display: inline-block;
-	width: 45%;
+	width: 48%;
 }
 #loanLeft, #loanMiddle, #loanRight {
 	display: inline-block;
-	width: 30%;
+	width: 32%;
+}
+#loanInformation, #comments, #contactInformation {
+	width:96%;
 }
