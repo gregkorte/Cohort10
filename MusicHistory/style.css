@@ -1,18 +1,27 @@
+
 #wrapper {
-  width: 95%;
-  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: arial;
+}
+#navWrapper {
+  width: 100%;
 }
 #nav {
   background: #FFB4B0;
-  border: solid 2px black;
-  margin-bottom: 10px;
-  flex-direction: column;
+  border: solid 3px black;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+#contentWrapper{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 #nav > ul > li {
   display: inline;
-  font-family: arial;
-  font-size: .9em;
-  border-right: solid black 2px;
+  font-size: 1em;
+  border-right: solid black 3px;
   padding-right: 5px;
 }
 #nav > ul > li:last-child {
@@ -20,42 +29,59 @@
 }
 #filter {
   background: #4DD7FA;
-  width: 20%;
-  border: solid black 2px;
+  max-width: 200px;
+  border: solid black 3px;
   margin-right: 10px;
   padding: 10px;
 }
 input[type="range"] {
-  -webkit-appearance: none;
-  background-color: darkgrey;
+  -webkit-appearance: none !important;
   height: 5px;
-  border-radius: 1px;width:100%; 
+  width: 100%;
  }
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
+  -webkit-appearance: none !important;
+  position: relative;
+  width: 20px;
+  height: 20px;
   background: lightgrey;
   border-radius: 50%;
   cursor: -moz-grab;
-  cursor: -webkit-grab; 
+  cursor: -webkit-grab;
+  border: solid black 3px;
+  top: -6px;
  }
+ input[type="range"]:focus::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+ }
+ input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none !important;
+  width: 100%;
+  height: 12px;
+  cursor: pointer;
+  background: #AAA;
+  border-radius: 20px;
+  border: 3px solid black;
+}
+input[type=range]::-webkit-slider-runnable-track:after {
+  -webkit-appearance: !important;
+  background: #FFF;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  -webkit-appearance: none !important;
+}
 select {
-  border: solid black 2px;
+  border: inset black 3px;
   border-radius: 5px;
+  width: 100%;
 }
-option {
-  outline: solid black 2px;
-}
-input[type="checkbox"]{
-  border: solid black 2px;
+input[type=checkbox] {
+  outline: solid black 3px;
 }
 #content {
-  position: relative;
   background: #FEFAC0;
-  width: 75%;
-  border: solid black 2px;
-  flex-direction: row;
+  border: solid black 3px;
+  margin-left: 243px;
 }
 #content header {
   font-family: arial;
