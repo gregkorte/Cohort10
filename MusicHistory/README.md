@@ -23,3 +23,13 @@ Students must use JavaScript to create a list of songs in the index.html file fo
 4. Must add each string to the DOM in index.html in the main content area.
 
 {Song name} by {Artist} on the album {Album}
+
+##Part 3:
+Using your new CSS skills, you'll build even better looking music history pages.
+
+####Criteria
+1. Use the Flexible Layout Box model to ensure that both the form section and the content section are the same height.
+2. The entire container for the even songs (plus its details) should have a background color of Sea Shell (SeaShell or #FFF5EE)
+3. The entire container for the odd songs (plus its details) should have a background color of Mint Cream (MintCream or #F5FFFA)
+4. The first song container should have bold text.
+5. Set the navigation bar's position so that it's always on the top of the page, even if you scroll down. To ensure this works, you can just add some div tags at the bottom of the page that add enough text that would force you to scroll the browser.
