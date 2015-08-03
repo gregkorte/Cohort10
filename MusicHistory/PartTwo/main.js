@@ -13,7 +13,13 @@ function examine(arr){
 	for(var i = 0; i < songs.length; i++){
 	songs[i] = songs[i].replace(/[!@(*]/g, '');
 	songs[i] = songs[i].replace(/>/, '-');
+	addSongs(songs[i]);
 	}
+}
+
+function addSongs(song){
+	var target = document.getElementById('content');
+	target.innerHTML += "<p>" + song + "</p>";
 }
 
 examine(songs)
