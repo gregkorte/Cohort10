@@ -120,6 +120,9 @@ input[type=checkbox] {
 #content section li:last-child {
   border-right: none;
 }
+#content p:first-child{
+  font-weight: bold;
+}
 #content p:nth-child(even){
   background: #FFF5EE;
 }
