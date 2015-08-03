@@ -99,10 +99,12 @@ input[type=checkbox] {
   margin-left: 243px;
 }
 #content header {
-  font-family: helvetica;
+  font-family: arial;
+  font-weight: 200;
   font-size: 1.3em;
   padding-left: 40px;
   color: #785616;
+  margin-bottom: -3px;
 }
 #content section li {
   display: inline;
