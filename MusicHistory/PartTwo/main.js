@@ -9,4 +9,11 @@ songs[songs.length] = "Ironi!c > by Alanis Moris*ette on the album Jagged Little
 songs.unshift("Any Colour You Like by Pink Floyd on the album Dark Side of the Moon");
 songs.push("Dogs by Pink Floyd on the album Animals");
 
-console.log(songs)
+function examine(arr){
+	for(var i = 0; i < songs.length; i++){
+	songs[i] = songs[i].replace(/[!@(*]/g, '');
+	songs[i] = songs[i].replace(/>/, '-');
+	}
+}
+
+examine(songs)
