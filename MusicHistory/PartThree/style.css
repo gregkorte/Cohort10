@@ -16,7 +16,7 @@
 #contentWrapper{
   position: relative;
   width: 100%;
-  overflow: hidden;
+  display: flex;
 }
 #nav > ul > li {
   display: inline;
@@ -96,7 +96,8 @@ input[type=checkbox] {
 #content {
   background: #FEFAC0;
   border: solid black 3px;
-  margin-left: 243px;
+  margin-left: 10px;
+  flex: 1;
 }
 #content header {
   font-family: arial;
