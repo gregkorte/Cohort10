@@ -120,6 +120,12 @@ input[type=checkbox] {
 #content section li:last-child {
   border-right: none;
 }
+#content p:nth-child(even){
+  background: #FFF5EE;
+}
+#content p:nth-child(odd){
+  background: #F5FFFA;
+}
 .left {
   float: left;
 }
