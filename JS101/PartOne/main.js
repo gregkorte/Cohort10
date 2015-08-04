@@ -54,8 +54,19 @@ function decrementTwoArr() {
 	for(var i = 1024; i > 1; i/=2) {
 		outputArr.push(i);
 	}
-	console.log(outputArr)
-	return "[" + outputArr.slice(0, outputArr.count).join(",") + "]";
+	return "[" + outputArr.slice(0, outputArr.count).join(", ") + "]";
+}
+
+function decrementOne() {
+	var outputArr = [];
+	for(var i = 100; i > 0; i--){
+		if(i % 2 === 0) {
+			outputArr.unshift(i);
+		} else {
+			outputArr.push(i);
+		}
+	}
+	return "[" + outputArr.slice(0, outputArr.count).join(", ") + "]";
 }
 
 	var hrsYr = hoursPerYear();
@@ -70,4 +81,6 @@ function decrementTwoArr() {
 	$('#increment-by-div-2').append(decTwo);
 	var decTwoArr = decrementTwoArr();
 	$('#insert-to-array').append(decTwoArr);
+	var decOne = decrementOne();
+	$('#even-odd-array span').append(decOne);
 })
