@@ -51,6 +51,8 @@ bandsAndVeggies();
 
 //Grade sorting//
 var g = document.getElementById("grades");
+var l = document.getElementById("low");
+var h = document.getElementById("high");
 var scores = [82, 71, 95, 55, 98, 69, 72, 78, 84, 64, 58, 87];
 var a = [];
 var b = [];
@@ -89,5 +91,10 @@ function sortGrades(scores) {
 							"<p>" + dCount + " D's</p>" +
 							"<p>" + fCount + " F's</p>"
 }
-
 sortGrades(scores)
+
+function getLowest(f) {
+	f.sort();
+	l.innerHTML = "<p>The lowest score is: " + f[0] + "</p>"
+}
+getLowest(f);
