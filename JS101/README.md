@@ -23,16 +23,16 @@ In this part, create a full, but basic, web document that combines the HTML and 
 1. Grab the resources/__basic.html, copy it into the js-101 directory, and rename it as index.html.
 2. Create a script element before the closing body tag, and put some basic JS in there that logs to the console, or creates an alert box, whatever you like.
 3. Do colored reindeer exercise:
-    a. Loop through all the reindeer in the array, and add the 
+    - a. Loop through all the reindeer in the array, and add the 
     name of the reindeer to the single HTML <div> element provided.
-    b. The name of the reindeer should be prepended with the corresponding
+    - b. The name of the reindeer should be prepended with the corresponding
     color from the other array.
-        For example:
+         - For example:
             Blue Dasher
             Red Dancer
             etc..
 4. Do vegetables and boy bands exercise:
-    a. Get a reference to the appropriate DOM element for bands
-    b. Get a reference to the appropriate DOM element for vegetables
-    c. Add the band names into the correct <div>
-    d. Add the veggie names into the correct <div>
+    - a. Get a reference to the appropriate DOM element for bands
+    - b. Get a reference to the appropriate DOM element for vegetables
+    - c. Add the band names into the correct <div>
+    - d. Add the veggie names into the correct <div>
