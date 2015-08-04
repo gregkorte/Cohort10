@@ -49,14 +49,25 @@ function decrementTwo() {
 	return outputStr;
 }
 
+function decrementTwoArr() {
+	var outputArr = [];
+	for(var i = 1024; i > 1; i/=2) {
+		outputArr.push(i);
+	}
+	console.log(outputArr)
+	return "[" + outputArr.slice(0, outputArr.count).join(",") + "]";
+}
+
 	var hrsYr = hoursPerYear();
 	$('#hours-in-year').append(hrsYr);
 	var minDec = minutesPerDecade();
-	$('#minutes-in-decade').append(minDec)
+	$('#minutes-in-decade').append(minDec);
 	var secOld = secondsOld();
 	$('#seconds-old').append(secOld);
 	var incTen = incrementTen();
-	$('#increment-by-10').append(incTen)
+	$('#increment-by-10').append(incTen);
 	var decTwo = decrementTwo();
 	$('#increment-by-div-2').append(decTwo);
+	var decTwoArr = decrementTwoArr();
+	$('#insert-to-array').append(decTwoArr);
 })
