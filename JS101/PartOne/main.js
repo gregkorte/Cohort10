@@ -26,9 +26,21 @@ function secondsOld() {
 }
 
 function incrementTen() {
-	var outputStr =""
-	for(var i = 0; i < 100+1; i+=10){
+	var outputStr = '';
+	for(var i = 0; i < 100+1; i+=10) {
 		if(i < 100) {
+			outputStr += i + ", ";
+		} else {
+			outputStr += i;
+		}
+	}
+	return outputStr;
+}
+
+function decrementTwo() {
+	var outputStr = '';
+	for(var i = 1024; i > 1; i/=2) {
+		if(i > 2) {
 			outputStr += i + ", ";
 		} else {
 			outputStr += i;
@@ -45,5 +57,6 @@ function incrementTen() {
 	$('#seconds-old').append(secOld);
 	var incTen = incrementTen();
 	$('#increment-by-10').append(incTen)
-
+	var decTwo = decrementTwo();
+	$('#increment-by-div-2').append(decTwo);
 })
