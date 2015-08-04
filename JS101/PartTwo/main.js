@@ -98,3 +98,9 @@ function getLowest(f) {
 	l.innerHTML = "<p>The lowest score is: " + f[0] + "</p>"
 }
 getLowest(f);
+
+function getHighest(a) {
+	a.sort();
+	h.innerHTML = "<p>The highest score is: " + a[a.length -1] + "</p>"
+}
+getHighest(a);
