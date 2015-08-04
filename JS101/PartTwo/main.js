@@ -48,3 +48,46 @@ function bandsAndVeggies(){
 	}
 }
 bandsAndVeggies();
+
+//Grade sorting//
+var g = document.getElementById("grades");
+var scores = [82, 71, 95, 55, 98, 69, 72, 78, 84, 64, 58, 87];
+var a = [];
+var b = [];
+var c = [];
+var d = [];
+var f = [];
+var aCount;
+var bCount;
+var cCount;
+var dCount;
+var fCount;
+
+function sortGrades(scores) {
+	for(var i = 0; i < scores.length; i++){
+		var s = scores[i];
+		if(s >= 91) {
+			a.push(s);
+		} else if(s >= 81) {
+			b.push(s);
+		} else if(s >= 71) {
+			c.push(s);
+		} else if(s >= 61) {
+			d.push(s);
+		} else {
+			f.push(s);
+		}
+	}
+	aCount = a.length;
+	bCount = b.length;
+	cCount = c.length;
+	dCount = d.length;
+	fCount = f.length;
+	g.innerHTML = "<p>" + aCount + " A's</p>" +
+							"<p>" + bCount + " B's</p>" +
+							"<p>" + cCount + " C's</p>" +
+							"<p>" + dCount + " D's</p>" +
+							"<p>" + fCount + " F's</p>"
+}
+
+sortGrades(scores)
