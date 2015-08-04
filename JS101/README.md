@@ -39,7 +39,6 @@ In this part, create a full, but basic, web document that combines the HTML and 
 5. Write a program that loops over an array of student grades (values from 50-100) and outputs how many of each grades there are. 50-60=F, 61-70=D, 71-80=C, 81-90=B, 91-100=A.
 
     - Start with array of random scores: var scores = [82, 71, 95, 55, 98, 69, 72, 78, 84, 64, 58, 87];
-
     - How many of each grade?
     - What is the lowest grade?
     - What is the highest grade?
