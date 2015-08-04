@@ -27,9 +27,12 @@ In this part, create a full, but basic, web document that combines the HTML and 
     name of the reindeer to the single HTML <div> element provided.
     b. The name of the reindeer should be prepended with the corresponding
     color from the other array.
-
-    For example:
-        Blue Dasher
-        Red Dancer
-        etc..
-4. 
+        For example:
+            Blue Dasher
+            Red Dancer
+            etc..
+4. Do vegetables and boy bands exercise:
+    a. Get a reference to the appropriate DOM element for bands
+    b. Get a reference to the appropriate DOM element for vegetables
+    c. Add the band names into the correct <div>
+    d. Add the veggie names into the correct <div>
