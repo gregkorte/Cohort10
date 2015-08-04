@@ -1,4 +1,4 @@
-#JavaScript 101
+#JavaScript 101 - Part 1
 
 ##Challenges
 
@@ -15,3 +15,10 @@ Do 4 different challenges that start at different initial values, use different 
 2. Write a for loop that divides the counter variable by 2 each time, and displays the value.
 3. Augment the loop to insert each new value into an array
 4. Write a loop that starts at 100 and decrements a variable by 1. If the number is even, add the number to the beginning of an array, else add it to the end of the array.
+
+#JavaScript 101 - Part 2
+
+In this part, create a full, but basic, web document that combines the HTML and the JavaScript - both inline and via an external link - and open it up in Chrome.
+
+1. Grab the resources/__basic.html, copy it into the js-101 directory, and rename it as index.html.
+2. Create a script element before the closing body tag, and put some basic JS in there that logs to the console, or creates an alert box, whatever you like.
