@@ -25,11 +25,25 @@ function secondsOld() {
 	return "<br>" + diff + " seconds";
 }
 
+function incrementTen() {
+	var outputStr =""
+	for(var i = 0; i < 100+1; i+=10){
+		if(i < 100) {
+			outputStr += i + ", ";
+		} else {
+			outputStr += i;
+		}
+	}
+	return outputStr;
+}
+
 	var hrsYr = hoursPerYear();
 	$('#hours-in-year').append(hrsYr);
 	var minDec = minutesPerDecade();
 	$('#minutes-in-decade').append(minDec)
 	var secOld = secondsOld();
 	$('#seconds-old').append(secOld);
+	var incTen = incrementTen();
+	$('#increment-by-10').append(incTen)
 
 })
