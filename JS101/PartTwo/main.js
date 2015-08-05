@@ -30,20 +30,22 @@ var bandElement = document.getElementById('boy-bands');
 var veggieElement = document.getElementById('vegetables');
 
 function bandsAndVeggies(){
+	bandElement.innerHTML += "<p>";
 	for (var i = 0; i < bands.length; i += 1) {
 	  currentBand = bands[i];
 		if(i + 1 < bands.length) {
 		  bandElement.innerHTML += currentBand + ", ";
 		} else {
-			bandElement.innerHTML += currentBand;
+			bandElement.innerHTML += currentBand + "</p>";
 		}
 	}
+	veggieElement.innerHTML += "<p>";
 	for (var i = 0; i < vegetables.length; i += 1) {
 		currentVeggie = vegetables[i];
 		if(i + 1 < vegetables.length) {
 			veggieElement.innerHTML += currentVeggie + ", ";
 		} else {
-			veggieElement.innerHTML += currentVeggie;
+			veggieElement.innerHTML += currentVeggie + "</p>";
 		}
 	}
 }
