@@ -109,11 +109,10 @@ getHighest(a);
 
 //No Remainder//
 // var primes = [2, 3, 5, 7];
-// var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // var lowDivNum = 1;
 
 // function findPrimes(nums){
-// 	for(var i = 0; i < nums.length; i++){
+// 	for(var i = 1; i < 10; i++){
 // 		if(i % 7 === 0){
 // 			lowDivNum *= i;
 // 		} else if(i % 5 === 0)
