@@ -136,14 +136,26 @@ getHighest(a);
 // 1*2*3*2*5*7*2*3
 
 //Fibonacci Generator//
-var prev = 0;
+var target = document.getElementById('fibonacci');
+var output = "<p>";
+var seq = [];
+seq[0] = 0;
+seq[1] = 1;
 
 function fibCount() {
-	for(var i = 1; i < 100; i = i + prev)
-	while (prev < 500) {
-		i = prev;
+	for(var i = 2; i < 15; i++) {
+		seq[i] = seq[i-1] + seq[i-2];
 	}
+	for(var i = 0; i < seq.length; i++) {
+		if(i < seq.length - 1){
+			output += seq[i] + ", "
+		} else {
+			output += seq[i]
+		}
+	}
+	target.innerHTML = output;
 }
+fibCount();
 
 //Sum of squares minus square of sums//
 var natNums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
