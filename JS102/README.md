@@ -8,8 +8,7 @@
 3. Each Car you create should inherit the make and model name.
 
 ####Criteria
-1. Create a function, Make, that has a property of makeName and give it the value of your
-   vehicle's make.
+1. Create a function, Make, that has a property of makeName and give it the value of your vehicle's make.
 2. Create a function, Model, to hold the corresponding property and value
 3. What is the prototype of a Model?
 4. Define a Car
