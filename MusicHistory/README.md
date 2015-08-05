@@ -33,3 +33,14 @@ Using your new CSS skills, you'll build even better looking music history pages.
 3. The entire container for the odd songs (plus its details) should have a background color of Mint Cream (MintCream or #F5FFFA)
 4. The first song container should have bold text.
 5. Set the navigation bar's position so that it's always on the top of the page, even if you scroll down. To ensure this works, you can just add some div tags at the bottom of the page that add enough text that would force you to scroll the browser.
+
+##Part 4:
+1. Section 1:
+    - Read from local JSON file with jQuery
+    - Loop over results and inject into Music History list page
+    - Add delete button DOM to each row and use jQuery to delete entire row
+2. Section 2:
+    - Take your music and split it into two JSON file instead of them all living on one file.
+    - Add a button at the bottom of your music list and label it "More >".
+    - Load the songs from the first list and inject the DOM into the document as you've already done.
+    - When the user clicks that button, load the songs from the second JSON file and append them to the bottom of the existing music, but before the More button.
