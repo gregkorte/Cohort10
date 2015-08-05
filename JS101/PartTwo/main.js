@@ -106,3 +106,68 @@ function getHighest(a) {
 	h.innerHTML = "<p>The highest score is: " + a[a.length -1] + "</p>"
 }
 getHighest(a);
+
+//No Remainder//
+// var primes = [2, 3, 5, 7];
+// var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// var lowDivNum = 1;
+
+// function findPrimes(nums){
+// 	for(var i = 0; i < nums.length; i++){
+// 		if(i % 7 === 0){
+// 			lowDivNum *= i;
+// 		} else if(i % 5 === 0)
+// 		} else if(i % 5 === 0) {
+// 			lowDivNum *= i;
+// 		}
+// 	}
+// }
+// 1 = 1
+// 2 = 2
+// 3 = 3
+// 4 = 2*2
+// 5 = 5
+// 6 = 3*2
+// 7 = 7
+// 8 = 2*2*2
+// 9 = 3*3
+// 10 = 5*2
+
+// 1*2*3*2*5*7*2*3
+
+//Fibonacci Generator//
+var prev = 0;
+
+function fibCount() {
+	for(var i = 1; i < 100; i = i + prev)
+	while (prev < 500) {
+		i = prev;
+	}
+}
+
+//Sum of squares minus square of sums//
+var natNums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var sumSquares = 0;
+var squareSums = 0;
+var output = document.getElementById('sum-squares');
+
+function getSumSquares(natnums) {
+	for(var i = 0; i < natNums.length; i++){
+		sumSquares += Math.pow(natNums[i], 2)
+	}
+}
+
+function getSquareSums(natNums) {
+	for (var i = 0; i < natNums.length; i++) {
+		squareSums += natNums[i];
+	}
+	squareSums = Math.pow(squareSums, 2);
+}
+
+function getDiff(sumSquares, squareSums) {
+	output.innerHTML = (sumSquares - squareSums)
+}
+
+getSumSquares(natNums);
+getSquareSums(natNums);
+getDiff(sumSquares, squareSums);
