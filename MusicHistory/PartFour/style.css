@@ -139,6 +139,9 @@ input[type=checkbox] {
 #content section li:first-child {
   padding-left: 0;
 }
+#content section li:nth-last-child(2) {
+  border-right: none;
+}
 #content section li:last-child {
   border-right: none;
 }
@@ -161,9 +164,14 @@ input[type=checkbox] {
   clear: both;
 }
 .deletebtn {
-  margin-left: 60px;
+  float: right;
+  margin-right: 60px;
   border-radius: 50%;
 }
 .deletebtn:focus {
   outline: none;
+}
+.more {
+  float: right;
+  margin: 0 50px 10px 0;
 }
