@@ -3,16 +3,16 @@ $(document).ready(function(){
 	$.ajax({
 		url: "songs.json"
 	}).done(function(data){
-		for(var i = 0; i < data.songs.length; i++){
-			console.log(data.songs.length)
+		json = $.parseJSON(data)
+		for(var i = 0; i < json.songs.length; i++){
 			output += "<section><header class='song-title'><h1>" 
-								+ data.songs[i].title
+								+ json.songs[i].title
 								+ "</h1></header><ul><li>"
-								+ data.songs[i].artist
+								+ json.songs[i].artist
 								+ "</li><li>"
-								+ data.songs[i].album
+								+ json.songs[i].album
 								+ "</li><li>"
-								+ data.songs[i].year
+								+ json.songs[i].year
 								+ "</li></ul></section>"
 		}
 		$('#content').append(output);
