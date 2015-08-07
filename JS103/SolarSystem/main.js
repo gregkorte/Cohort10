@@ -32,13 +32,13 @@ $(document).ready(function(){
   var planetPool = SolarSystem.getPlanets();
   var exploredPool = SolarSystem.getPlanetsExplored();
   var craftPool = SolarSystem.getSpaceCraft();
-  output.append('<div class="planets"><h2>Planets in our solar system</h2>');
+  output.append('<div class="planets radial metal"><h2>Planets in our solar system</h2>');
   for (var i = 0; i < planetPool.length; i++){
     output.append("<p>" + planetPool[i] + "</p>");
   }
-  output.append('<div class="craft"><h2>Current probes exploring the solar system</h2>');
+  output.append('<div class="craft radial metal"><h2>Current probes exploring the solar system</h2>');
   for (var i = 0; i < craftPool.length; i++){
     output.append("<p>" + craftPool[i] + "</p></div>");
   }
-  output.append("<div class='explored'><h2>Number of planets explored</h2></div>" + "<p>" + exploredPool + "</p>")
+  output.append("<div class='explored radial metal'><h2>Number of planets explored</h2></div>" + "<p>" + exploredPool + "</p>")
 })

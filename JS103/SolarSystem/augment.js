@@ -37,14 +37,14 @@ $(document).ready(function(){
 	var cloStar = SolarSystem.getClosestStars();
 	var estAge = SolarSystem.getEstimatedAge();
 	var knoDwar = SolarSystem.getKnownDwarfs();
-	output.append('<div class="stars"><h2>Closest stars to our solar system</h2>');
+	output.append('<div class="stars radial metal"><h2>Closest stars to our solar system</h2>');
   for (var i = 0; i < cloStar.length; i++){
     output.append("<p>" + cloStar[i] + "</p>");
   }
-  output.append('<div class="dwarfs"><h2>Dwarf planets in our solar system</h2>');
+  output.append('<div class="dwarfs radial metal"><h2>Dwarf planets in our solar system</h2>');
   for (var i = 0; i < knoDwar.length; i++){
     output.append("<p>" + knoDwar[i] + "</p>");
   }
-   output.append('<div class="age"><h2>Age of our solar system</h2></div><p>' + estAge + '</p>');
+   output.append('<div class="age radial metal"><h2>Age of our solar system</h2></div><p>' + estAge + '</p>');
 
 })
