@@ -27,11 +27,11 @@ var SolarSystem = (function() {
 
 $(document).ready(function(){
   var output = $('#output');
+  SolarSystem.setSpaceCraft("Spirit", "Messenger", "Venus Express", "Akatsuki", "LRO", "Artemis" );
   SolarSystem.setPlanetsExplored(4);
   var planetPool = SolarSystem.getPlanets();
   var exploredPool = SolarSystem.getPlanetsExplored();
   var craftPool = SolarSystem.getSpaceCraft();
-  SolarSystem.setSpaceCraft("Spirit", "Messenger", "Venus Express", "Akatsuki", "LRO", "Artemis" );
   output.append('<div class="planets"><h2>Planets in our solar system</h2>');
   for (var i = 0; i < planetPool.length; i++){
     output.append("<p>" + planetPool[i] + "</p>");
