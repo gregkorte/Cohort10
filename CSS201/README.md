@@ -18,7 +18,7 @@
 1. After using Bower to install Bootstrap, get the JavaScript and CSS linked in to the HTML file.
 2. Install SASS (gem install sass)
 3. Create two sub-directories (sass & styles)
-4. Install Grunt task to compile SASS into CSS (npm install grunt-contrib-sass -- save-dev)
+4. Install Grunt task to compile SASS into CSS (npm install grunt-contrib-sass --save-dev)
 5. Update Gruntfile (see [CSS201 mod](https://github.com/nashville-software-school/evening-cohort/tree/master/19-css-201))
 6. Create sass/main.scss file and copy code from CSS201 mod
 7. Run Grunt to compile sass to css
