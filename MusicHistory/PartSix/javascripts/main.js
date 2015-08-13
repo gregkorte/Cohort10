@@ -30,7 +30,7 @@ requirejs(
             "year": "1967"
         }
       ]
-	})
+	});
 
 	pop.getInitSongs(function(data){
 	}, output);
