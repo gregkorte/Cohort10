@@ -1,52 +1,28 @@
-$(document).ready(function(){
+requirejs.config({
+	baseUrl: './javascripts',
+	paths: {
+		'jquery': '../bower_components/jquery/dist/jquery.min'
+	}
+});
+
+requirejs(
+  ["jquery", "dom-access", "populate-songs", "get-more-songs"],
+  function($, dom, pop, more) {
+
+  var initialSongs = [];
+	var output = dom.getInitOutput();
 	var counter = 0;
 
-	$.ajax({
-		url: "../songs.json"
-	}).done(function(data){
-		var output = '';
-		json = $.parseJSON(data)
-		for(var i = 0; i < json.songs.length; i++){
-			output += "<section><header class='song-title'><h1>"
-			+ json.songs[i].title
-			+ "</h1></header><ul><li>"
-			+ json.songs[i].artist
-			+ "</li><li>"
-			+ json.songs[i].album
-			+ "</li><li>"
-			+ json.songs[i].year
-			+ "</li><li><button class='deletebtn'>x</button></li></ul></section>"
-		}
-		$('#content').prepend(output);
-	});
-
-	function getMore(){
-		$.ajax({
-			url: "../songs2.json"
-		}).done(function(data){
-			var output = '';
-			json = $.parseJSON(data)
-			for(var i = 0; i < json.songs.length; i++){
-				output += "<section><header class='song-title'><h1>"
-				+ json.songs[i].title
-				+ "</h1></header><ul><li>"
-				+ json.songs[i].artist
-				+ "</li><li>"
-				+ json.songs[i].album
-				+ "</li><li>"
-				+ json.songs[i].year
-				+ "</li><li><button class='deletebtn'>x</button></li></ul></section>"
-			}
-			$('.more').before(output);
-		});
-	}
+	pop.getInitSongs(function(data){
+	}, output);
 
 	$('#content').on('click', '.more', function(){
-		counter++
+		counter++;
 		if(counter > 1) {
 			return;
 		} else {
-			getMore();
+			more.getMoreSongs(function(data){
+			}, output);
 		}
 	});
 

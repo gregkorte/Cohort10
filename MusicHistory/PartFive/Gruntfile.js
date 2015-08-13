@@ -4,6 +4,13 @@ module.exports = function(grunt) {
     jshint: {
       files: ['./javascripts/**/*.js']
     },
+    sass: {
+      dist: {
+        files: {
+          'styles/style.css': 'sass/style.scss'
+        }
+      }
+    },
     watch: {
       javascripts: {
         files: ['./javascripts/**/*.js'],
@@ -13,5 +20,5 @@ module.exports = function(grunt) {
   });
 
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.registerTask('default', ['jshint', 'watch']);
+  grunt.registerTask('default', ['jshint', 'sass']);
 };

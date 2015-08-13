@@ -1,21 +1,21 @@
 html {
-  box-sizing: border-box; }
-
+  box-sizing: border-box;
+}
 body {
   padding: 0;
-  margin: 0 10px; }
-
+  margin: 0 10px;
+}
 #wrapper {
   max-width: 1000px;
   margin: 0 auto;
-  font-family: arial; }
-
+  font-family: arial;
+}
 #navWrapper {
   position: relative;
   width: 100%;
   height: 80px;
-  margin-right: 10px; }
-
+  margin-right: 10px;
+}
 #nav {
   position: fixed;
   width: inherit;
@@ -25,43 +25,43 @@ body {
   max-width: 996px;
   background: #FFB4B0;
   border: solid 3px black;
-  margin-bottom: 20px; }
-
+  margin-bottom: 20px;
+}
 #nav-top {
   position: relative;
-  flex-direction: column; }
-
+  flex-direction: column;
+}
 #nav-bottom {
   position: relative;
-  flex-direction: column; }
-
-#contentWrapper {
+  flex-direction: column;
+}
+#contentWrapper{
   position: relative;
   width: 100%;
-  display: flex; }
-
+  display: flex;
+}
 #nav > ul > li {
   display: inline;
   font-size: 1em;
   border-right: solid black 3px;
-  padding-right: 5px; }
-
+  padding-right: 5px;
+}
 #nav > ul > li:last-child {
-  border-right: none; }
-
+  border-right: none;
+}
 #filter {
   background: #4DD7FA;
   max-width: 200px;
   border: solid black 3px;
   margin-right: 10px;
-  padding: 10px; }
-
+  padding: 10px;
+}
 input[type="range"] {
   -webkit-appearance: none !important;
   height: 5px;
   width: 100%;
-  margin: 20px 0; }
-
+  margin: 20px 0;
+ }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none !important;
   position: relative;
@@ -72,107 +72,106 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: -moz-grab;
   cursor: -webkit-grab;
   border: solid black 3px;
-  top: -6px; }
-
-input[type="range"]:focus::-webkit-slider-thumb {
+  top: -6px;
+ }
+ input[type="range"]:focus::-webkit-slider-thumb {
   -webkit-appearance: none !important;
-  outline: none !important; }
-
-input[type=range]::-webkit-slider-runnable-track {
+  outline: none !important;
+ }
+ input[type=range]::-webkit-slider-runnable-track {
   -webkit-appearance: none !important;
   width: 100%;
   height: 12px;
   cursor: pointer;
   background: #AAA;
   border-radius: 20px;
-  border: 3px solid black; }
-
+  border: 3px solid black;
+}
 input[type=range]::-webkit-slider-runnable-track:after {
   -webkit-appearance: !important;
-  background: #FFF; }
-
+  background: #FFF;
+}
 input[type=range]:focus::-webkit-slider-runnable-track {
   -webkit-appearance: none !important;
-  outline: none !important; }
-
+  outline: none !important;
+}
 select {
   border: solid black 3px;
   border-radius: 5px;
   width: 100%;
   height: 30px;
-  margin: 15px 0; }
-
+  margin: 15px 0;
+}
 input[type=checkbox] {
   outline: solid black 3px;
   margin: 10px 5px;
   width: 17px;
-  height: 17px; }
-
+  height: 17px;
+}
 #filterBtn {
   margin: 20px auto 5px;
   width: 120px;
   border: solid black 3px;
   border-radius: 7px;
-  height: 30px; }
-
+  height: 30px;
+}
 #content {
   background: #FEFAC0;
   border: solid black 3px;
   margin-left: 10px;
-  flex: 1; }
-
+  flex: 1;
+}
 #content header {
   font-family: arial;
   font-weight: 200;
   font-size: 1.3em;
   padding-left: 40px;
   color: #785616;
-  margin-bottom: -3px; }
-
+  margin-bottom: -3px;
+}
 #content section li {
   display: inline;
   font-family: arial;
   font-size: .9em;
   border-right: solid black 1px;
-  padding: 0 10px; }
-
+  padding: 0 10px;
+}
 #content section li:first-child {
-  padding-left: 0; }
-
+  padding-left: 0;
+}
 #content section li:nth-last-child(2) {
-  border-right: none; }
-
+  border-right: none;
+}
 #content section li:last-child {
-  border-right: none; }
-
-#content p:first-child {
-  font-weight: bold; }
-
-#content p:nth-child(even) {
-  background: #FFF5EE; }
-
-#content p:nth-child(odd) {
-  background: #F5FFFA; }
-
+  border-right: none;
+}
+#content p:first-child{
+  font-weight: bold;
+}
+#content p:nth-child(even){
+  background: #FFF5EE;
+}
+#content p:nth-child(odd){
+  background: #F5FFFA;
+}
 .left {
-  float: left; }
-
+  float: left;
+}
 .right {
-  float: right; }
-
+  float: right;
+}
 .clear {
-  clear: both; }
-
+  clear: both;
+}
 .deletebtn {
   float: right;
   margin-right: 60px;
-  border-radius: 50%; }
-
+  border-radius: 50%;
+}
 .deletebtn:focus {
-  outline: none; }
-
+  outline: none;
+}
 .more {
   float: right;
-  margin: 0 50px 10px 0; }
-
-/*# sourceMappingURL=style.css.map */
+  margin: 0 50px 10px 0;
+}
