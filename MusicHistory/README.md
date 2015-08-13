@@ -74,3 +74,15 @@ All your current CSS should be converted into SASS, and you must use SASS from t
 As you are working, ensure that your Grunt task is running at all times so that your JavaScript code is automatically checked as you're writing it, and your SASS is compiled into CSS.
 
  -Note: After you run your grunt task, if you add more JavaScript files, you need to restart grunt so that it recognizes the new file you added.
+
+#Part 6
+
+####Criteria
+1. Get your songs into Firebase.
+2. Use jQuery to retrieve the songs from your API.
+3. Use the JSON objects to populate Handlebar templates.
+4. Use the populated templates to update the browser.
+5. Create a 2nd page to your application that lets you add songs.
+6. Add new songs to your Firebase API with POST AJAX calls.
+7. Populate the form fields with data from your API (you can remove the song length form field).
+8. When "Filter" button is pressed, update the song list with songs that only match the specified criteria.
