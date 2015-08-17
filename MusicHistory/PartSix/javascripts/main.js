@@ -29,11 +29,11 @@ requirejs(
 		});
 	};
 
-	var getHbsNoObj = function(temp){
-		require(['hbs!../templates/' + temp], function(template){
-			var addForm = template();
-			show.html(addForm);
-		});
+	var clearAdd = function(){
+		$('#add-title').val('');
+		$('#add-artist').val('');
+		$('#add-album').val('');
+		$('#add-year').val('');
 	};
 
 	pop.getInitSongs(function(data){
@@ -43,20 +43,16 @@ requirejs(
 		});
 	});
 
-	$('#contentWrapper').on('click', 'addBtn', function(){
-		console.log('Add button clicked');
+	$('#addBtn').on('click', function(){
 		var addSong = {
-			'title': $('add-title').val(),
-			'artist': $('add-artist').val(),
-			'album': $('add-album').val(),
-			'year': $('add-year').val()
+			'title': $('#add-title').val(),
+			'artist': $('#add-artist').val(),
+			'album': $('#add-album').val(),
+			'year': $('#add-year').val()
 		};
-		console.log(addSong);
 		add.newSong(addSong);
-	});
-
-	$('#nav').on('click', '#link_add', function(){
-		getHbsNoObj('addSong');
+		clearAdd();
+		//Add section on add page for most recent adds//
 	});
 
 	$('#content').on('click', '.deletebtn', function(){
