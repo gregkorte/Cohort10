@@ -1,8 +1,13 @@
-define(['jquery'], function($){
-  var $output = $('#contentWrapper');
+define(function(){
   return{
-    songToFb: function(){
-      return $output;
+    newSong: function(song){
+      console.log('newSong running');
+      $.ajax({
+        url: "https://nsscohort10.firebaseio.com/music-history/songs.json",
+        method: "POST",
+        data: JSON.stringify(song)
+      }).done(function(data){
+      });
     }
   };
 });

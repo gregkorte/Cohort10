@@ -19,22 +19,20 @@ requirejs(
   function($, boot, _fire, Handlebars, dom, pop, add) {
 
 	var fb = new Firebase("https://nsscohort10.firebaseio.com/music-history/");
-	var showSongs = dom.getWrapper();
-	var addSong = add.songToFb();
+	var show = dom.getWrapper();
 
 	var getHbsObj = function(obj, temp){
 		require(['hbs!../templates/' + temp], function(template){
 			obj = {song: obj};
 			var songList = template(obj);
-			showSongs.html(songList);
+			show.html(songList);
 		});
 	};
 
 	var getHbsNoObj = function(temp){
 		require(['hbs!../templates/' + temp], function(template){
 			var addForm = template();
-			console.log(addForm);
-			addSong.html(addForm);
+			show.html(addForm);
 		});
 	};
 
@@ -43,6 +41,18 @@ requirejs(
 		songsObj = snapshot.val();
 		getHbsObj(songsObj, 'musicMain');
 		});
+	});
+
+	$('#contentWrapper').on('click', 'addBtn', function(){
+		console.log('Add button clicked');
+		var addSong = {
+			'title': $('add-title').val(),
+			'artist': $('add-artist').val(),
+			'album': $('add-album').val(),
+			'year': $('add-year').val()
+		};
+		console.log(addSong);
+		add.newSong(addSong);
 	});
 
 	$('#nav').on('click', '#link_add', function(){

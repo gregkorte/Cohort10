@@ -11,13 +11,26 @@
         <div id="nav">
           <ul>
             <li><a href="index.html">View Music</a></li>
-            <li><a href="addSong.html">Add Music</a></li>
+            <li><a href="#" id="link_add">Add Music</a></li>
             <li><a href="#" id="link_profile">Profile</a></li>
           </ul>
         </div>
       </div>
       <div id="contentWrapper">
-        <!--All hbs nodes end up here-->
+        <div id="add">
+          <header class='song-title'>
+            <h1>Add a song...</h1>
+          </header>
+          <label>Song title</label>
+          <input type="text" id='add-title'><br>
+          <label>Artist</label>
+          <input type="text" id='add-artist'><br>
+          <label>Album</label>
+          <input type="text" id='add-album'><br>
+          <label>Year</label>
+          <input type="text" id='add-year'><br>
+          <input type='button' id="addBtn" value="Add Song">
+        </div>
       </div>
     </div>
     <script data-main="javascripts/main" src="bower_components/requirejs/require.js"></script>
