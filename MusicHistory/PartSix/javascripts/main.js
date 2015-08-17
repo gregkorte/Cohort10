@@ -15,32 +15,38 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "bootstrap", "firebase", "hbs", "dom-access", "populate-songs"],
-  function($, boot, _fire, Handlebars, dom, pop) {
+  ["jquery", "bootstrap", "firebase", "hbs", "dom-access", "populate-songs", "addPage"],
+  function($, boot, _fire, Handlebars, dom, pop, add) {
 
 	var fb = new Firebase("https://nsscohort10.firebaseio.com/music-history/");
-	var output = dom.getInitOutput();
+	var show = dom.getInitOutput();
+	var addSong = add.songToFb();
 
-	var getHbs = function(arr, temp){
-		// console.log('3. getHbs running');
-		// console.log(arr);
-		// console.log(temp);
+	var getHbsObj = function(obj, temp){
 		require(['hbs!../templates/' + temp], function(template){
-			console.log('Require loaded!');
-			console.log(arr);
-			var songList = template(arr);
-			console.log(songList);
-			output.html(songList);
+			obj = {song: obj};
+			var songList = template(obj);
+			show.html(songList);
+		});
+	};
+
+	var getHbsNoObj = function(temp){
+		require(['hbs!../templates/' + temp], function(template){
+			var addForm = template();
+			console.log(addForm);
+			addSong.html(addForm);
 		});
 	};
 
 	pop.getInitSongs(function(data){
 		fb.child('songs').on('value', function(snapshot) {
-		var songArray = [];
-		// console.log('2. Accessing fb');
-		songArray.push(snapshot.val());
-		getHbs(songArray, 'musicMain');
+		songsObj = snapshot.val();
+		getHbsObj(songsObj, 'musicMain');
 		});
+	});
+
+	$('#nav').on('click', '#link_add', function(){
+		getHbsNoObj('addSong');
 	});
 
 	$('#content').on('click', '.deletebtn', function(){
