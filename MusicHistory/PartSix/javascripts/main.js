@@ -19,14 +19,14 @@ requirejs(
   function($, boot, _fire, Handlebars, dom, pop, add) {
 
 	var fb = new Firebase("https://nsscohort10.firebaseio.com/music-history/");
-	var show = dom.getInitOutput();
+	var showSongs = dom.getWrapper();
 	var addSong = add.songToFb();
 
 	var getHbsObj = function(obj, temp){
 		require(['hbs!../templates/' + temp], function(template){
 			obj = {song: obj};
 			var songList = template(obj);
-			show.html(songList);
+			showSongs.html(songList);
 		});
 	};
 
