@@ -1,0 +1,37 @@
+<form>
+  <select id="artistFilt">
+    <option value="default" selected="true" disabled="disabled">Filter by Artist</option>
+    {{#each song}}
+    <option>{{artist}}</option>
+    {{/each}}
+  </select>
+  <select id="albumFilt">
+    <option value="default" selected="true" disabled="disabled">Filter by Album</option>
+    {{#each song}}
+    <option>{{album}}</option>
+    {{/each}}
+  </select>
+  <select id="yearFilt">
+    <option value="default" selected="true" disabled="disabled">Filter by Year</option>
+    {{#each song}}
+    <option>{{year}}</option>
+    {{/each}}
+  </select>
+  <label for="genre">Genre:</label>
+  <br>
+  <table>
+    <tr>
+      <td><input type="checkbox" name="rock">Rock</td>
+      <td><input type="checkbox" name="classical">Classical</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="pop">Pop</td>
+      <td><input type="checkbox" name="jazz">Jazz</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="blues">Blues</td>
+      <td><input type="checkbox" name="hip-hop">Hip hop</td>
+    </tr>
+  </table>
+    <input class="filterBtn" type="button" name="filter" value="Filter">
+</form>

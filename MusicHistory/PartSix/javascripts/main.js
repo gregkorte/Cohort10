@@ -17,20 +17,10 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "bootstrap", "firebase", "hbs", "lodash", "underscore", "dom-access", "populate-songs", "addPage", 'filter'],
-  function($, boot, _fire, Handlebars, lodsh, _, dom, pop, add, filt) {
+  ["jquery", "bootstrap", "firebase", "hbs", "lodash", "underscore", "dom-access", "populate-songs", "addPage", 'filter', 'templates'],
+  function($, boot, _fire, Handlebars, lodsh, _, dom, pop, add, filt, hbs) {
 
 	var fb = new Firebase("https://nsscohort10.firebaseio.com/music-history/");
-	var show = dom.getWrapper();
-	var filter = dom.getFilter();
-
-	var getHbsObj = function(obj, temp){
-		require(['hbs!../templates/' + temp], function(template){
-			obj = {song: obj};
-			var songList = template(obj);
-			show.html(songList);
-		});
-	};
 
 	var clearAdd = function(){
 		$('#add-title').val('');
@@ -42,7 +32,8 @@ requirejs(
 	pop.getInitSongs(function(data){
 		fb.child('songs').on('value', function(snapshot) {
 		songsObj = snapshot.val();
-		getHbsObj(songsObj, 'musicMain');
+		hbs.getTemp(songsObj, 'filter');
+		hbs.getTemp(songsObj, 'musicMain');
 		});
 	});
 
