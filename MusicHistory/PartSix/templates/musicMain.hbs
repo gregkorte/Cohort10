@@ -1,35 +1,41 @@
 <div id="filter" class="left">
-  <label for="song-length">Song length:</label>
-<div class="range-form-control"><input type="range" name="song-length"></div>
-<label for="artist">Artist:</label>
-<select>
-  {{#each song}}
-  <option>{{artist}}</option>
-  {{/each}}
-</select>
-<label for="album">Album:</label>
-<select>
-  {{#each song}}
-  <option>{{album}}</option>
-  {{/each}}
-</select>
-<label for="genre">Genre:</label>
-<br>
-<table>
-  <tr>
-    <td><input type="checkbox" name="rock">Rock</td>
-    <td><input type="checkbox" name="classical">Classical</td>
-  </tr>
-  <tr>
-    <td><input type="checkbox" name="pop">Pop</td>
-    <td><input type="checkbox" name="jazz">Jazz</td>
-  </tr>
-  <tr>
-    <td><input type="checkbox" name="blues">Blues</td>
-    <td><input type="checkbox" name="hip-hop">Hip hop</td>
-  </tr>
-</table>
-  <input id="filterBtn" type="button" name="filter" value="Filter">
+  <form>
+    <select id="artistFilt">
+      <option value="default" selected="true" disabled="disabled">Filter by Artist</option>
+      {{#each song}}
+      <option>{{artist}}</option>
+      {{/each}}
+    </select>
+    <select id="albumFilt">
+      <option value="default" selected="true" disabled="disabled">Filter by Album</option>
+      {{#each song}}
+      <option>{{album}}</option>
+      {{/each}}
+    </select>
+    <select id="yearFilt">
+      <option value="default" selected="true" disabled="disabled">Filter by Year</option>
+      {{#each song}}
+      <option>{{year}}</option>
+      {{/each}}
+    </select>
+    <label for="genre">Genre:</label>
+    <br>
+    <table>
+      <tr>
+        <td><input type="checkbox" name="rock">Rock</td>
+        <td><input type="checkbox" name="classical">Classical</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="pop">Pop</td>
+        <td><input type="checkbox" name="jazz">Jazz</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="blues">Blues</td>
+        <td><input type="checkbox" name="hip-hop">Hip hop</td>
+      </tr>
+    </table>
+      <input class="filterBtn" type="button" name="filter" value="Filter">
+  </form>
 </div>
 <div id="content">
 {{#each song}}
