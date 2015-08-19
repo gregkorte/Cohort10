@@ -8,7 +8,8 @@ define(['underscore', 'templates'], function(_, hbs){
       //reset filter fields//
     },
     album: function(filter, obj){
-      console.log(filter, obj);
+      var newObj = _.where(obj, {album: filter});
+      hbs.getTemp(newObj, 'musicMain');
     },
     year: function(filter, obj){
       console.log(filter, obj);

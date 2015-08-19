@@ -56,13 +56,9 @@ requirejs(
 
 		if ($('.artist').is(':selected')){
 			filt.artist($selected.val(), songsObj);
-
 		} else if ($('.album').is(':selected')){
-			console.log($selected.val());
 			filt.album($selected.val(), songsObj);
-
 		} else if ($('.year').is(':selected')){
-			console.log($selected.val());
 			filt.year($selected.val(), songsObj);
 		} else {
 			return;
