@@ -1,10 +1,15 @@
-define(['lodash'], function(lodsh){
+define(function(){
   return{
-    getFilter: function() {
-
-    },
     // dupesFilter: function(obj) {
-    //   _.forIn(obj, function(value, key))
-    // }
+    // },
+    artist: function(obj){
+      console.log(obj);
+    },
+    album: function(obj){
+      console.log(obj);
+    },
+    year: function(obj){
+      console.log(obj);
+    }
   };
 });

@@ -2,19 +2,19 @@
   <select id="artistFilt">
     <option value="default" selected="true" disabled="disabled">Filter by Artist</option>
     {{#each song}}
-    <option>{{artist}}</option>
+    <option class="artist">{{artist}}</option>
     {{/each}}
   </select>
   <select id="albumFilt">
     <option value="default" selected="true" disabled="disabled">Filter by Album</option>
     {{#each song}}
-    <option>{{album}}</option>
+    <option class="album">{{album}}</option>
     {{/each}}
   </select>
   <select id="yearFilt">
     <option value="default" selected="true" disabled="disabled">Filter by Year</option>
     {{#each song}}
-    <option>{{year}}</option>
+    <option class="year">{{year}}</option>
     {{/each}}
   </select>
   <label for="genre">Genre:</label>

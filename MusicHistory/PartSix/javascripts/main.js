@@ -20,7 +20,7 @@ requirejs(
   ["jquery", "bootstrap", "firebase", "hbs", "lodash", "underscore", "dom-access", "populate-songs", "addPage", 'filter', 'templates'],
   function($, boot, _fire, Handlebars, lodsh, _, dom, pop, add, filt, hbs) {
 
-	var fb = new Firebase("https://nsscohort10.firebaseio.com/music-history/");
+  var fb = new Firebase("https://nsscohort10.firebaseio.com/music-history/");
 
 	var clearAdd = function(){
 		$('#add-title').val('');
@@ -49,10 +49,25 @@ requirejs(
 		//Add section on add page for most recent adds//
 	});
 
-	$('#contentWrapper').on('click', 'select', function(){
-		var selected = $(this).find('option:selected').text();
+	$('#filter').on('click', 'select', function(){
+		var $selected = $(this).find('option:selected');
+		console.log($selected);
 		$(this).siblings('select').val('default');
-		console.log(selected);
+
+		if ($('.artist').is(':selected')){
+			console.log('I have artists');
+			filt.artist($selected.val());
+
+		} else if ($('.album').is(':selected')){
+			console.log('I have albums');
+			filt.album($selected.val());
+
+		} else if ($('.year').is(':selected')){
+			console.log('I have years');
+			filt.year($selected.val());
+		} else {
+			return;
+		}
 	});
 
 	//.on('click', function(){
