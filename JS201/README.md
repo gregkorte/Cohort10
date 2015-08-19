@@ -10,7 +10,7 @@
 7. Create a new Firebase application. Go to your dashboard and fill out the form. App name should be "family", and provide a unique URL. (e.g. nss-steve-family)
 8. Using RequireJS, build a modular application that reads all family members from your Firebase DB, lets you add new family members, and lets you delete family members (like that annoying nephew you can't stand).
 9. There should be a main module, a module that handles adding, and a module that handles deleting.
-10. Use the JSON structure shown below when adding a family member. For the skills array, have a <textarea> field in your form where the user can enter in a comma-delimited list of skills that you will convert into an array.
+10. Use the JSON structure shown below when adding a family member. For the skills array, have a ```html<textarea>``` field in your form where the user can enter in a comma-delimited list of skills that you will convert into an array.
 11. Use a Handlebars template to create the DOM that lists all family members.
 12. You can either use AJAX calls to handle all operations, or if you're comfortable with the Firebase native API, you can use that.
 13. Commit early, commit often.
