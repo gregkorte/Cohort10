@@ -72,9 +72,8 @@ requirejs(
 		// });
 	//});
 
-	$('#contentWrapper').on('click', '.filterBtn', function(){
-		console.log('filter fired');
-		filt.getFilter();
+	$('#contentWrapper').on('click', '.resetBtn', function(){
+		location.reload();
 	});
 
 	$('#contentWrapper').on('click', '.deletebtn', function(){

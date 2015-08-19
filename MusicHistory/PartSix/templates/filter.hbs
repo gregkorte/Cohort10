@@ -1,3 +1,6 @@
+<header>
+  <h1>Filters</h1>
+</header>
 <form>
   <select id="artistFilt">
     <option value="default" selected="true" disabled="disabled">Filter by Artist</option>
@@ -17,21 +20,6 @@
     <option class="year">{{year}}</option>
     {{/each}}
   </select>
-  <label for="genre">Genre:</label>
   <br>
-  <table>
-    <tr>
-      <td><input type="checkbox" name="rock">Rock</td>
-      <td><input type="checkbox" name="classical">Classical</td>
-    </tr>
-    <tr>
-      <td><input type="checkbox" name="pop">Pop</td>
-      <td><input type="checkbox" name="jazz">Jazz</td>
-    </tr>
-    <tr>
-      <td><input type="checkbox" name="blues">Blues</td>
-      <td><input type="checkbox" name="hip-hop">Hip hop</td>
-    </tr>
-  </table>
-    <input class="filterBtn" type="button" name="filter" value="Filter">
+    <input class="resetBtn" type="button" name="reset" value="Reset Filters">
 </form>
