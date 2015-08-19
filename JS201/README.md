@@ -17,7 +17,7 @@
 14. When completed, send your Github URL to your assigned TA (I'll announce who yours will be).
 
 ######Family member JSON stucture
-
+```json
 {
   "family": [
     {
@@ -33,3 +33,4 @@
     }
   ]
 }
+```json
