@@ -19,29 +19,29 @@ requirejs(
   function($, boot, _fire, Handlebars, dom, pop, add, del, hbs) {
 
   var fb = new Firebase("https://nsscohort10.firebaseio.com/users/");
-  var songsObj;
+  var usersObj;
 
   var clearAdd = function(){
-    $('#add-title').val('');
-    $('#add-artist').val('');
-    $('#add-album').val('');
-    $('#add-year').val('');
+    $('#add-name').val('');
+    $('#add-age').val('');
+    $('#add-gender').val('');
+    $('#add-skills').val('');
   };
 
-  pop.getInitSongs(function(data){
-    fb.child('songs').on('value', function(snapshot) {
-    songsObj = snapshot.val();
-    hbs.getTemp(songsObj, 'filter');
-    hbs.getTemp(songsObj, 'musicMain');
+  pop.getAllUsers(function(data){
+    fb.child('users').on('value', function(snapshot) {
+    usersObj = snapshot.val();
+    hbs.getTemp(usersObj, 'filter');
+    hbs.getTemp(usersObj, 'musicMain');
     });
   });
 
   $('#addBtn').on('click', function(){
     var addSong = {
-      'title': $('#add-title').val(),
-      'artist': $('#add-artist').val(),
-      'album': $('#add-album').val(),
-      'year': $('#add-year').val()
+      'name': $('#add-title').val(),
+      'age': $('#add-artist').val(),
+      'gender': $('#add-album').val(),
+      'skills': $('#add-year').val()
     };
     add.newSong(addSong);
     clearAdd();

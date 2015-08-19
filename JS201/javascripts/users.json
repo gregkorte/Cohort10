@@ -1,0 +1,15 @@
+{
+  "users": [
+    {
+      "name": "First Last",
+      "age": 4,
+      "gender": "male",
+      "skills": [
+        "burping",
+        "farting",
+        "inappropriate shouting",
+        "tantrums"
+      ]
+    }
+  ]
+}
