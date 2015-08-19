@@ -12,7 +12,8 @@ define(['underscore', 'templates'], function(_, hbs){
       hbs.getTemp(newObj, 'musicMain');
     },
     year: function(filter, obj){
-      console.log(filter, obj);
+      var newObj = _.where(obj, {year: filter});
+      hbs.getTemp(newObj, 'musicMain');
     }
   };
 });
