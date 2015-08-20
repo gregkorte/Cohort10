@@ -19,11 +19,13 @@ requirejs(
   ["jquery", "jquery-ui", "bootstrap", "firebase", "hbs", "dom", "populate", "add", 'delete', 'templates'],
   function($, ui, boot, _fire, Handlebars, dom, pop, add, del, hbs) {
 
-  var fb = new Firebase("https://nsscohort10.firebaseio.com/users/");
+  var fb = new Firebase("https://nsscohort10.firebaseio.com/");
   var usersObj;
 
   pop.getAllUsers(function(data){
+    console.log('getAllUsers running');
     fb.child('users').on('value', function(snapshot) {
+      console.log(snapshot.val());
     usersObj = snapshot.val();
     hbs.getTemp(usersObj, 'allUsers');
     });
