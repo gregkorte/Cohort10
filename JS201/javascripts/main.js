@@ -25,8 +25,8 @@ requirejs(
     add.newUser();
   });
 
-  $('#contentWrapper').on('click', '.deletebtn', function(){
-      $(this).closest('section').remove();
+  $('#content').on('click', '.deletebtn', function(){
+    del.removeUser($(this));
   });
 
 });
