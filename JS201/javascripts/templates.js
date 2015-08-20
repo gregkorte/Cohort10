@@ -1,7 +1,6 @@
 define(['jquery', 'hbs', 'dom'], function($, Handlebars, dom){
   return {
     getTemp: function(obj, temp){
-      console.log('getTemp running');
       require(['hbs!../templates/' + temp], function(template){
         var show = dom.getAllUsers();
         obj = {users: obj};
