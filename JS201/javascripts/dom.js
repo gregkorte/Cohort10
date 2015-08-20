@@ -1,7 +1,7 @@
 define(['jquery'], function($){
   return{
-    getFilter: function(){
-      return $('');
+    getAllUsers: function(){
+      return $('#content');
     }
   };
 });
