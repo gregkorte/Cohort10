@@ -5,8 +5,9 @@ define(function(){
       'name': $('#name').val(),
       'age': $('#age').val(),
       'gender': $('#gender').val(),
-      'skills': $('#skills').val()
+      'skills': $('#skills').val().split(', '),
     };
+    console.log(addUser.skills);
       $.ajax({
         url: "https://nsscohort10.firebaseio.com/users.json",
         method: "POST",
