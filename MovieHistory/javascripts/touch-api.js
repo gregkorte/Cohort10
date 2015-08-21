@@ -1,20 +1,21 @@
-define(['templates'], function(hbs){
+define(['templates', 'add'], function(hbs, add){
   return{
     getMovieSearch: function(){
       var input = $('.searchBtn').siblings('#search-movie').val();
       // console.log('1. getInitSongs running');
       $.ajax({
-        url: "http://www.omdbapi.com/?s=" + input// + "&y=&plot=short&r=json"
+        url: "http://www.omdbapi.com/?s=" + input
       }).done(function(input){
         console.log(input);
         hbs.getTemp(input, 'movieSearch');
       });
     },
-    getMovie: function(query, cb2Main){
-      $ajax({
-        url: "http://www.omdbapi.com/?i=" + query
+    getMovie: function(btn){
+      var id = btn.siblings('header').attr('id');
+      $.ajax({
+        url: "http://www.omdbapi.com/?i=" + id
       }).done(function(data){
-        cb2Main.call(this, data);
+        add.newMovie(data);
       });
     }
   };

@@ -22,9 +22,8 @@ requirejs(
 
   pop.getInitMovies();
 
-  $('#addBtn').on('click', function(){
-    add.newMovie();
-    clearAdd();
+  $('#content').on('click', '.addBtn', function(){
+    api.getMovie($(this));
     //Add section on add page for most recent adds//
   });
 
