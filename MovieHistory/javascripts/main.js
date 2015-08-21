@@ -17,8 +17,8 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "bootstrap", "firebase", "hbs", "lodash", "underscore", "dom-access", "populate", "add", 'filter', 'templates'],
-  function($, boot, _fire, Handlebars, lodsh, _, dom, pop, add, filt, hbs) {
+  ["jquery", "bootstrap", "firebase", "hbs", "lodash", "underscore", "dom-access", "populate", "add", 'filter', 'templates', 'touch-api'],
+  function($, boot, _fire, Handlebars, lodsh, _, dom, pop, add, filt, hbs, api) {
 
   var fb = new Firebase("https://nsscohort10.firebaseio.com/movie-history/");
   var moviesObj;
@@ -66,5 +66,14 @@ requirejs(
   $('#contentWrapper').on('click', '.deletebtn', function(){
       $(this).closest('section').remove();
   });
+
+  $('#filter').on('click', '.searchBtn', function(){
+    console.log('search clicked');
+    console.log($(this).siblings('#search-movie').val());
+    var input = $(this).siblings('#search-movie').val();
+    api.getMovie(input, function(){
+
+    })
+  })
 
 });

@@ -2,24 +2,26 @@
   <h1>Filters</h1>
 </header>
 <form>
-  <select id="artistFilt">
-    <option value="default" selected="true" disabled="disabled">Filter by Artist</option>
-    {{#each song}}
-    <option class="artist">{{artist}}</option>
-    {{/each}}
-  </select>
-  <select id="albumFilt">
-    <option value="default" selected="true" disabled="disabled">Filter by Album</option>
-    {{#each song}}
-    <option class="album">{{album}}</option>
-    {{/each}}
-  </select>
+  <input type="text" id="search-movie" placeholder="search">
   <select id="yearFilt">
     <option value="default" selected="true" disabled="disabled">Filter by Year</option>
-    {{#each song}}
+    {{#each movie}}
     <option class="year">{{year}}</option>
     {{/each}}
   </select>
+  <select id="actorFilt">
+    <option value="default" selected="true" disabled="disabled">Filter by Actor</option>
+    {{#each movie}}
+    <option class="album">{{actors}}</option>
+    {{/each}}
+  </select>
+  <select id="ratingFilt">
+    <option value="default" selected="true" disabled="disabled">Filter by Keyword</option>
+    {{#each song}}
+    <option class="rating">{{rating}}</option>
+    {{/each}}
+  </select>
   <br>
-    <input class="resetBtn" type="button" name="reset" value="Reset Filters">
+  <input class="searchBtn" type="button" name="search" value="Search Movies">
+  <input class="resetBtn" type="button" name="reset" value="Reset Filters">
 </form>
