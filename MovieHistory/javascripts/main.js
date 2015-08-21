@@ -20,26 +20,10 @@ requirejs(
   ["jquery", "bootstrap", "firebase", "hbs", "lodash", "underscore", "dom-access", "populate", "add", 'filter', 'templates', 'touch-api'],
   function($, boot, _fire, Handlebars, lodsh, _, dom, pop, add, filt, hbs, api) {
 
-  var fb = new Firebase("https://nsscohort10.firebaseio.com/movie-history/");
-  var moviesObj;
-
-  pop.getInitMovies(function(data){
-    fb.child('movies').on('value', function(snapshot) {
-    moviesObj = snapshot.val();
-    hbs.getTemp(moviesObj, 'filter');
-    hbs.getTemp(moviesObj, 'movieMain');
-    });
-  });
+  pop.getInitMovies();
 
   $('#addBtn').on('click', function(){
-    var addMovie = {
-      'title': $('#add-title').val(),
-      'year': $('#add-year').val(),
-      'actors': $('#add-actors').val().split(', '),
-      'rating': $('#add-rating').val(),
-      'viewed': $('#add-viewed').val()
-    };
-    add.newMovie(addMovie);
+    add.newMovie();
     clearAdd();
     //Add section on add page for most recent adds//
   });
@@ -68,12 +52,7 @@ requirejs(
   });
 
   $('#filter').on('click', '.searchBtn', function(){
-    console.log('search clicked');
-    console.log($(this).siblings('#search-movie').val());
-    var input = $(this).siblings('#search-movie').val();
-    api.getMovie(input, function(){
-
-    })
-  })
+    api.getMovieSearch();
+  });
 
 });
