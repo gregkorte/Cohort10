@@ -2,14 +2,14 @@
 {{#each this}}
 <section>
   <header class='movie-title'>
-    <h1>{{title}}</h1>
+    <h1>{{Title}} ({{Year}})</h1>
   </header>
+  <img src="{{Poster}}">
   <ul>
-    <li>{{poster}}</li>
-    <li>{{year}}</li>
-    <li>{{actors}}</li>
-    <li>{{year}}</li>
-    <li>{{rating}}</li>
+    <li>{{Actors}}</li>
+    <li>{{Plot}}</li>
+    <li>{{Rated}}</li>
+    <li>{{Runtime}}</li>
     <li><button class='deletebtn'>x</button></li>
   </ul>
 </section>
