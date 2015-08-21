@@ -17,35 +17,29 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "bootstrap", "firebase", "hbs", "lodash", "underscore", "dom-access", "populate-songs", "addPage", 'filter', 'templates'],
+  ["jquery", "bootstrap", "firebase", "hbs", "lodash", "underscore", "dom-access", "populate", "add", 'filter', 'templates'],
   function($, boot, _fire, Handlebars, lodsh, _, dom, pop, add, filt, hbs) {
 
-  var fb = new Firebase("https://nsscohort10.firebaseio.com/music-history/");
-  var songsObj;
+  var fb = new Firebase("https://nsscohort10.firebaseio.com/movie-history/");
+  var moviesObj;
 
-  var clearAdd = function(){
-    $('#add-title').val('');
-    $('#add-artist').val('');
-    $('#add-album').val('');
-    $('#add-year').val('');
-  };
-
-  pop.getInitSongs(function(data){
-    fb.child('songs').on('value', function(snapshot) {
-    songsObj = snapshot.val();
-    hbs.getTemp(songsObj, 'filter');
-    hbs.getTemp(songsObj, 'musicMain');
+  pop.getInitMovies(function(data){
+    fb.child('movies').on('value', function(snapshot) {
+    moviesObj = snapshot.val();
+    hbs.getTemp(moviesObj, 'filter');
+    hbs.getTemp(moviesObj, 'movieMain');
     });
   });
 
   $('#addBtn').on('click', function(){
-    var addSong = {
+    var addMovie = {
       'title': $('#add-title').val(),
-      'artist': $('#add-artist').val(),
-      'album': $('#add-album').val(),
-      'year': $('#add-year').val()
+      'year': $('#add-year').val(),
+      'actors': $('#add-actors').val().split(', '),
+      'rating': $('#add-rating').val(),
+      'viewed': $('#add-viewed').val()
     };
-    add.newSong(addSong);
+    add.newMovie(addMovie);
     clearAdd();
     //Add section on add page for most recent adds//
   });

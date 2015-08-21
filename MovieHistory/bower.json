@@ -21,6 +21,8 @@
   "devDependencies": {
     "firebase": "~2.2.9",
     "require-handlebars-plugin": "~0.11.3",
-    "q": "~2.0.2"
+    "q": "~2.0.2",
+    "lodash": "~3.10.1",
+    "underscore": "~1.8.3"
   }
 }

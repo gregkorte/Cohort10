@@ -1,0 +1,25 @@
+<header>
+  <h1>Filters</h1>
+</header>
+<form>
+  <select id="artistFilt">
+    <option value="default" selected="true" disabled="disabled">Filter by Artist</option>
+    {{#each song}}
+    <option class="artist">{{artist}}</option>
+    {{/each}}
+  </select>
+  <select id="albumFilt">
+    <option value="default" selected="true" disabled="disabled">Filter by Album</option>
+    {{#each song}}
+    <option class="album">{{album}}</option>
+    {{/each}}
+  </select>
+  <select id="yearFilt">
+    <option value="default" selected="true" disabled="disabled">Filter by Year</option>
+    {{#each song}}
+    <option class="year">{{year}}</option>
+    {{/each}}
+  </select>
+  <br>
+    <input class="resetBtn" type="button" name="reset" value="Reset Filters">
+</form>
