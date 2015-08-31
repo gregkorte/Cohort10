@@ -1,6 +1,6 @@
 <h1>Movies in Firebase</h1>
 {{#each this}}
-<section>
+<section id="{{@key}}">
   <header class='movie-title'>
     <h1>{{Title}} ({{Year}})</h1>
   </header>
@@ -10,7 +10,8 @@
     <li>{{Plot}}</li>
     <li>{{Rated}}</li>
     <li>{{Runtime}}</li>
-    <li><button class='deletebtn'>x</button></li>
   </ul>
+  <button class='deleteBtn'>Remove</button>
+  <button class='watchedBtn'>Watched</button>
 </section>
 {{/each}}

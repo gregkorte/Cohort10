@@ -2,7 +2,6 @@ define(['templates', 'add'], function(hbs, add){
   return{
     getMovieSearch: function(){
       var input = $('.searchBtn').siblings('#search-movie').val();
-      // console.log('1. getInitSongs running');
       $.ajax({
         url: "http://www.omdbapi.com/?s=" + input
       }).done(function(input){

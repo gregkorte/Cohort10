@@ -8,6 +8,7 @@ define(['templates'], function(hbs){
       }).done(function(data){
         fb.child('movies').on('value', function(snapshot) {
           moviesObj = snapshot.val();
+          console.log(moviesObj);
           hbs.getTemp(moviesObj, 'filter');
           hbs.getTemp(moviesObj, 'movieMain');
         });

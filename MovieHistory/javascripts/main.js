@@ -31,12 +31,12 @@ requirejs(
     var $selected = $(this).find('option:selected');
     $(this).siblings('select').val('default');
 
-    if ($('.artist').is(':selected')){
-      filt.artist($selected.val(), songsObj);
-    } else if ($('.album').is(':selected')){
-      filt.album($selected.val(), songsObj);
-    } else if ($('.year').is(':selected')){
-      filt.year($selected.val(), songsObj);
+    if ($('.year').is(':selected')){
+      filt.year($selected.val(), moviesObj);
+    } else if ($('.actors').is(':selected')){
+      filt.actors($selected.val(), moviesObj);
+    } else if ($('.rating').is(':selected')){
+      filt.rating($selected.val(), moviesObj);
     } else {
       return;
     }
@@ -46,12 +46,16 @@ requirejs(
     location.reload();
   });
 
-  $('#contentWrapper').on('click', '.deletebtn', function(){
+  $('#contentWrapper').on('click', '.deleteBtn', function(){
       $(this).closest('section').remove();
   });
 
   $('#filter').on('click', '.searchBtn', function(){
     api.getMovieSearch();
   });
+
+  $('#contentWrapper').on('click', '.watchedBtn', function(){
+    add.watched($(this));
+  })
 
 });
