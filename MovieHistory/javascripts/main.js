@@ -6,7 +6,8 @@ requirejs.config({
     'firebase': '../bower_components/firebase/firebase',
     'hbs': '../bower_components/require-handlebars-plugin/hbs',
     'lodash': '../bower_components/lodash/lodash.min',
-    'underscore': '../bower_components/underscore/underscore-min'
+    'underscore': '../bower_components/underscore/underscore-min',
+    'rating': '../bower_components/bootstrap-star-rating/js/star-rating.min'
   },
   shim: {
     'bootstrap': ['jquery'],
@@ -17,8 +18,8 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "bootstrap", "firebase", "hbs", "lodash", "underscore", "dom-access", "populate", "add", 'filter', 'templates', 'touch-api'],
-  function($, boot, _fire, Handlebars, lodsh, _, dom, pop, add, filt, hbs, api) {
+  ["jquery", "bootstrap", "firebase", "hbs", "lodash", "underscore", "dom-access", "populate", "add", 'filter', 'templates', 'touch-api', 'rating'],
+  function($, boot, _fire, Handlebars, lodsh, _, dom, pop, add, filt, hbs, api, rate) {
 
   pop.getInitMovies();
 

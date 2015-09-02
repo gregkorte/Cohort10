@@ -30,6 +30,11 @@ define(function(){
       var fb = new Firebase('https://nsscohort10.firebaseio.com/movie-history');
       key = btn.closest('section').attr('id');
       fb.child('movies').child(key).update({watched: true});
+    },
+    rating: function(btn, rating){
+      var fb = new Firebase('https://nsscohort10.firebaseio.com/movie-history');
+      key = btn.closest('section').attr('id');
+      fb.child('movies').child(key).update({rating: rating});
     }
   };
 });
