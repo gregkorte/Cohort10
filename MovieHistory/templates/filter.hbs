@@ -5,20 +5,20 @@
   <input type="text" id="search-movie" placeholder="search">
   <select id="yearFilt">
     <option value="default" selected="true" disabled="disabled">Filter by Year</option>
-    {{#each this}}
-    <option class="year">{{Year}}</option>
+    {{#each Year}}
+    <option class="year">{{[]}}</option>
     {{/each}}
   </select>
   <select id="actorFilt">
     <option value="default" selected="true" disabled="disabled">Filter by Actor</option>
     {{#each Actors}}
-    <option class="actors">{{Actors}}</option>
+    <option class="actors">{{[]}}</option>
     {{/each}}
   </select>
   <select id="ratingFilt">
     <option value="default" selected="true" disabled="disabled">Filter by Keyword</option>
-    {{#each this}}
-    <option class="rating">{{rating}}</option>
+    {{#each Rating}}
+    <option class="rating">{{[]}}</option>
     {{/each}}
   </select>
   <br>

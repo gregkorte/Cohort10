@@ -1,4 +1,4 @@
-define(['templates'], function(hbs){
+define(['templates', 'filter'], function(hbs, filt){
   return{
     getInitMovies: function(){
       var fb = new Firebase("https://nsscohort10.firebaseio.com/movie-history/");
@@ -9,7 +9,16 @@ define(['templates'], function(hbs){
         fb.child('movies').on('value', function(snapshot) {
           moviesObj = snapshot.val();
           console.log(moviesObj);
-          hbs.getTemp(moviesObj, 'filter');
+          var yearObj = filt.dupes('Year', moviesObj);
+          var actorObj = filt.dupes('Actors', moviesObj);
+          var ratingObj = filt.dupes('Rated', moviesObj);
+          var filterObj = {
+            Year: yearObj,
+            Actors: actorObj,
+            Rating: ratingObj
+          };
+          console.log(filterObj);
+          hbs.getTemp(filterObj, 'filter');
           hbs.getTemp(moviesObj, 'movieMain');
         });
       });
