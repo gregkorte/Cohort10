@@ -24,7 +24,7 @@ Students must use JavaScript to create a list of songs in the index.html file fo
 
 {Song name} by {Artist} on the album {Album}
 
-##Part 3:
+## Part 3:
 Using your new CSS skills, you'll build even better looking music history pages.
 
 ####Criteria
@@ -34,7 +34,7 @@ Using your new CSS skills, you'll build even better looking music history pages.
 4. The first song container should have bold text.
 5. Set the navigation bar's position so that it's always on the top of the page, even if you scroll down. To ensure this works, you can just add some div tags at the bottom of the page that add enough text that would force you to scroll the browser.
 
-##Part 4:
+## Part 4:
 1. Section 1:
     - Read from local JSON file with jQuery
     - Loop over results and inject into Music History list page
@@ -45,7 +45,7 @@ Using your new CSS skills, you'll build even better looking music history pages.
     - Load the songs from the first list and inject the DOM into the document as you've already done.
     - When the user clicks that button, load the songs from the second JSON file and append them to the bottom of the existing music, but before the More button.
 
-##Part 5:
+## Part 5:
 
 ####Using RequireJS
 1. Create a new directory workspace/music-history-5 and cd into it.
@@ -75,7 +75,7 @@ As you are working, ensure that your Grunt task is running at all times so that 
 
  -Note: After you run your grunt task, if you add more JavaScript files, you need to restart grunt so that it recognizes the new file you added.
 
-#Part 6
+##Part 6
 
 ####Criteria
 1. Get your songs into Firebase.

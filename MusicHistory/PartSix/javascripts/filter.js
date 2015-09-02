@@ -1,7 +1,6 @@
-define(['underscore', 'templates'], function(_, hbs){
+define(['underscore', 'templates', 'hbs'], function(_, hbs, Handlebars){
+
   return{
-    // dupesFilter: function(obj) {
-    // },
     artist: function(filter, obj){
       var newObj = _.where(obj, {artist: filter});
       hbs.getTemp(newObj, 'musicMain');

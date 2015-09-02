@@ -17,8 +17,8 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "bootstrap", "firebase", "hbs", "lodash", "underscore", "dom-access", "populate-songs", "addPage", 'filter', 'templates'],
-  function($, boot, _fire, Handlebars, lodsh, _, dom, pop, add, filt, hbs) {
+  ["jquery", "bootstrap", "firebase", "hbs", "lodash", "underscore", "dom-access", "populate-songs", "addPage", 'filter', 'templates', 'dupes'],
+  function($, boot, _fire, Handlebars, lodsh, _, dom, pop, add, filt, hbs, dupes) {
 
   var fb = new Firebase("https://nsscohort10.firebaseio.com/music-history/");
   var songsObj;
