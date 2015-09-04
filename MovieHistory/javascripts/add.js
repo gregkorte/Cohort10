@@ -3,7 +3,7 @@ define(function(){
     newMovie: function(obj){
       console.log(obj);
       obj = {
-        Actors: obj.Actors.split(','),
+        Actors: obj.Actors.split(', '),
         Awards: obj.Awards,
         Director: obj.Director,
         Genre: obj.Genre,

@@ -8,7 +8,6 @@ define(['templates', 'filter'], function(hbs, filt){
       }).done(function(data){
         fb.child('movies').on('value', function(snapshot) {
           moviesObj = snapshot.val();
-          console.log(moviesObj);
           var yearObj = filt.dupes('Year', moviesObj);
           var actorObj = filt.dupes('Actors', moviesObj);
           var ratingObj = filt.dupes('Rated', moviesObj);
@@ -17,7 +16,6 @@ define(['templates', 'filter'], function(hbs, filt){
             Actors: actorObj,
             Rating: ratingObj
           };
-          console.log(filterObj);
           hbs.getTemp(filterObj, 'filter');
           hbs.getTemp(moviesObj, 'movieMain');
         });

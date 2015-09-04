@@ -1,15 +1,22 @@
 define(['underscore', 'templates'], function(_, hbs){
   return{
-    // dupesFilter: function(obj) {
-    // },
     year: function(filter, obj){
       var newObj = _.where(obj, {Year: filter});
-      console.log(newObj);
       hbs.getTemp(newObj, 'movieMain');
-      //reset filter fields//
     },
     actors: function(filter, obj){
-      var newObj = _.where(obj, {Actors: filter});
+      var newObj = {};
+      var newArr = [];
+      for (items in obj){
+        var actArr = obj[items].Actors;
+        for (var i = 0; i < actArr.length; i++){
+          if (filter === actArr[i]){
+            var key = items;
+            newArr.push({[key]: obj[items]});
+            newObj[key] = obj[items];
+          }
+        }
+      }
       hbs.getTemp(newObj, 'movieMain');
     },
     rating: function(filter, obj){
@@ -17,12 +24,22 @@ define(['underscore', 'templates'], function(_, hbs){
       hbs.getTemp(newObj, 'movieMain');
     },
     dupes: function(filter, obj){
-      return _.chain(obj)
-              .sortBy(filter)
-              .pluck(filter)
-              .uniq()
-              .compact()
-              .value();
+      if (filter === 'Actors'){
+        return _.chain(obj)
+                .pluck(filter)
+                .flatten()
+                .sort() //FIX THIS: IT'S NOT WORKING... WELL
+                .uniq()
+                .compact()
+                .value();
+      } else {
+          return _.chain(obj)
+                  .sortBy(filter)
+                  .pluck(filter)
+                  .uniq()
+                  .compact()
+                  .value();
+      }
     }
   };
 });
