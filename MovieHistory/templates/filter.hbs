@@ -1,27 +1,36 @@
-<header>
-  <h1>Filters</h1>
-</header>
-<form>
-  <input type="text" id="search-movie" placeholder="search">
-  <select id="yearFilt">
-    <option value="default" selected="true" disabled="disabled">Filter by Year</option>
-    {{#each Year}}
-    <option class="year">{{[]}}</option>
-    {{/each}}
-  </select>
-  <select id="actorFilt">
-    <option value="default" selected="true" disabled="disabled">Filter by Actor</option>
-    {{#each Actors}}
-    <option class="actors">{{[]}}</option>
-    {{/each}}
-  </select>
-  <select id="ratingFilt">
-    <option value="default" selected="true" disabled="disabled">Filter by Rating</option>
-    {{#each Rating}}
-    <option class="rating">{{[]}}</option>
-    {{/each}}
-  </select>
-  <br>
-  <input class="searchBtn" type="button" name="search" value="Search Movies">
-  <input class="resetBtn" type="button" name="reset" value="Reset Filters">
-</form>
+<div class="row filter">
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Filter by Year
+      <span class="caret"></span>
+    </button>
+    <ul id="yearFilt" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      {{#each Year}}
+        <li><a href="#" class="year">{{[]}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Filter by Actor
+      <span class="caret"></span>
+    </button>
+    <ul id="actorFilt" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      {{#each Actors}}
+        <li><a href="#" class="actors">{{[]}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Filter by Rating
+      <span class="caret"></span>
+    </button>
+    <ul id="ratingFilt" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      {{#each Rating}}
+        <li><a href="#" class="rating">{{[]}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+  <input class="btn btn-default resetBtn" type="button" name="reset" value="Reset Filter">
+</div>

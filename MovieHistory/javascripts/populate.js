@@ -20,6 +20,7 @@ define(['templates', 'filter'], function(hbs, filt){
           hbs.getTemp(moviesObj, 'movieMain');
         });
       });
+      $('rating').raty();
     }
   };
 });

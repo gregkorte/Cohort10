@@ -3,17 +3,26 @@
 <head>
   <meta charset="utf-8">
   <title>Movie History Project</title>
-  <link rel="stylesheet" type="text/css" media="all" href="bower_components/bootstrap-star-rating/css/star-rating.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/raty/lib/jquery.raty.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
   <body>
     <div id="wrapper">
       <div id="navWrapper">
         <div id="nav">
-          <ul>
-            <li><a href="index.html">View Movie</a></li>
-            <li><a href="addSong.html">Add Movie</a></li>
-            <li><a href="#" id="link_profile">Profile</a></li>
+          <ul class="nav nav-tabs">
+            <li role="presentation"><a href="index.html">Home</a></li>
+            <li role="presentation"><a href="addSong.html">Add Movie</a></li>
+            <li role="presentation"><a href="#" id="link_profile">Profile</a></li>
+            <div class="col-lg-3 search-movie">
+              <div class="input-group">
+                <input type="text" id="search-movie" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <button class="btn btn-default searchBtn" name="search" type="button">Go!</button>
+                </span>
+              </div>
+            </div>
           </ul>
         </div>
       </div>

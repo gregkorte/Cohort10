@@ -7,7 +7,7 @@ requirejs.config({
     'hbs': '../bower_components/require-handlebars-plugin/hbs',
     'lodash': '../bower_components/lodash/lodash.min',
     'underscore': '../bower_components/underscore/underscore-min',
-    'rating': '../bower_components/bootstrap-star-rating/js/star-rating.min'
+    'rating': '../bower_components/raty/lib/jquery.raty'
   },
   shim: {
     'bootstrap': ['jquery'],
@@ -28,16 +28,29 @@ requirejs(
     //Add section on add page for most recent adds//
   });
 
-  $('#filter').on('click', 'select', function(){
-    var $selected = $(this).find('option:selected');
-    $(this).siblings('select').val('default');
+  // $('#filter').on('click', 'select', function(){
+  //   var $selected = $(this).find('option:selected');
+  //   $(this).siblings('select').val('default');
 
-    if ($('.year').is(':selected')){
-      filt.year($selected.val(), moviesObj);
-    } else if ($('.actors').is(':selected')){
-      filt.actors($selected.val(), moviesObj);
-    } else if ($('.rating').is(':selected')){
-      filt.rating($selected.val(), moviesObj);
+  // if ($('.year').is(':selected')){
+  //     filt.year($selected.val(), moviesObj);
+  //   } else if ($('.actors').is(':selected')){
+  //     filt.actors($selected.val(), moviesObj);
+  //   } else if ($('.rating').is(':selected')){
+  //     filt.rating($selected.val(), moviesObj);
+  //   } else {
+  //     return;
+  //   }
+  // });
+
+  $('#filter').on('click', 'a', function(){
+    var selected = $(this).text();
+    if ($(this).hasClass('year')) {
+      filt.year(selected, moviesObj)
+    } else if ($(this).hasClass('actors')) {
+      filt.actors(selected, moviesObj);
+    } else if ($(this).hasClass('rating')) {
+      filt.rating(selected, moviesObj);
     } else {
       return;
     }
@@ -51,12 +64,12 @@ requirejs(
       $(this).closest('section').remove();
   });
 
-  $('#filter').on('click', '.searchBtn', function(){
+  $('#nav').on('click', '.searchBtn', function(){
     api.getMovieSearch();
   });
 
   $('#contentWrapper').on('click', '.watchedBtn', function(){
     add.watched($(this));
-  })
+  });
 
 });

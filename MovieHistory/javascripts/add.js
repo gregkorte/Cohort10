@@ -1,7 +1,6 @@
 define(function(){
   return{
     newMovie: function(obj){
-      console.log(obj);
       obj = {
         Actors: obj.Actors.split(', '),
         Awards: obj.Awards,
@@ -23,7 +22,6 @@ define(function(){
         method: "POST",
         data: JSON.stringify(obj)
       }).done(function(data){
-        console.log(data);
       });
     },
     watched: function(btn){

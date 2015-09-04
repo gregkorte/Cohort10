@@ -7,7 +7,7 @@ define(['underscore', 'templates'], function(_, hbs){
     actors: function(filter, obj){
       var newObj = {};
       var newArr = [];
-      for (items in obj){
+      for (var items in obj){
         var actArr = obj[items].Actors;
         for (var i = 0; i < actArr.length; i++){
           if (filter === actArr[i]){
@@ -43,5 +43,6 @@ define(['underscore', 'templates'], function(_, hbs){
     }
   };
 });
+
 
 //_.chain(obj).flatten().where(obj, {year: filter}).sortBy(newObj, 'year')

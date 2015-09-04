@@ -1,11 +1,11 @@
 define(['templates', 'add'], function(hbs, add){
   return{
     getMovieSearch: function(){
-      var input = $('.searchBtn').siblings('#search-movie').val();
+      var input = $('.searchBtn').closest('.input-group').children('#search-movie').val();
+      console.log(input);
       $.ajax({
         url: "http://www.omdbapi.com/?s=" + input
       }).done(function(input){
-        console.log(input);
         hbs.getTemp(input, 'movieSearch');
       });
     },
