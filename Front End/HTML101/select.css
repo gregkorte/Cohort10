@@ -1,0 +1,40 @@
+#selectField {
+    height:24px;
+    width:170px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 5px #888;
+}
+#selectField select:not([multiple]),
+#selectField select:not([multiple]) {
+    position: absolute;
+    left:0;
+    top:0;
+    height:34px;
+    width:115%;
+    font-size:13px;
+    color:#e7e7e7;
+    width:calc(100%+30px);
+    border:0 !important;
+    background: none !important;
+    border-radius:2px;
+    padding:10px 34px 10px 10px;
+    box-shadow:none;
+    box-sizing:border-box;
+    z-index: 2;
+    cursor: pointer;
+}
+#selectField select + .select {
+    width:80%;
+    display: block;
+    height:15px;
+    border:1px solid #CBD5DD;
+    border-radius:2px;
+    box-shadow:inset 0 1px 3px rgba(0,0,0,0.1);
+    box-sizing:border-box;
+    position:relative;
+    z-index: 1;
+    cursor: pointer;
+    background:url(http://domanart.pl/dema/css-forms/select-arrow.png) right center/15px 15px no-repeat;
+}

@@ -1,0 +1,10 @@
+textarea {
+	display: block;
+	height: 200px;
+	width: 400px;
+}
+select, button {
+	display: inline-block;
+	padding: 5px;
+	margin: 5px 0;
+}

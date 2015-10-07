@@ -1,0 +1,8 @@
+div {
+	margin: 10px auto;
+	width: 75%;
+	min-width: 30%;
+}
+#even-odd-array span {
+	width: 300px;
+}
