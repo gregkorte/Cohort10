@@ -18,7 +18,7 @@ namespace DotNetKoans.CSharp
             Assert.True(true, "This should be true -- Please fix this");
         }
 
-        //To understand reality, we must compare our expectations against reality.
+        //To understand reality, compare our expectations against reality we must.
         [Koan(3)]
         public void AssertEquality() 
         {
