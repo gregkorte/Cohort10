@@ -10,6 +10,34 @@ namespace Mathmagician
     {
         static void Main(string[] args)
         {
+            string prompt = "> ";
+                                                                    // cw tab tab (console.writeline stub)
+            Console.WriteLine("What do you want me to do?");        // WriteLine gets new line
+            Console.Write(prompt);                                  // Write keeps on same line
+            string response = Console.ReadLine();
+            if (response == "natural numbers")
+            {
+                Console.WriteLine("How much you wan?");
+                Console.Write(prompt);
+                string response_length = Console.ReadLine();
+                int length;
+                bool parsed = int.TryParse(response_length, out length);
+                if (parsed)
+                {
+                    NaturalNumbers nats = new NaturalNumbers();
+                    Console.WriteLine(nats.ToString(nats.GetSequence(length)));
+                }
+                else
+                {
+                    Console.WriteLine("Whoops!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Nope! Do better next time.");
+            }
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }
