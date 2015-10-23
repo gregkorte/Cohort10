@@ -9,7 +9,7 @@ namespace Mathmagician
 {
     public class NaturalNumbers
     {
-        private int first;
+        protected int first;
 
                                                                  // ctor tab tab (new class stub)
         public NaturalNumbers()
@@ -17,7 +17,7 @@ namespace Mathmagician
             first = 1;
         }
 
-        public int GetNext(int x)
+        public virtual int GetNext(int x)
         {
             return x+1;
         }
