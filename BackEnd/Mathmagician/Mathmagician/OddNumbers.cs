@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Mathmagician
 {
-    public class EvenNumbers : NaturalNumbers
+    public class OddNumbers : NaturalNumbers
     {
-        public EvenNumbers()
+        public OddNumbers()
         {
-            first = 2;
+            first = 1;
             // inheritance
             increment = 2;
         }
