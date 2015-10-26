@@ -15,7 +15,7 @@ namespace SinglyLinkedLists
         private SinglyLinkedListNode next;
         public SinglyLinkedListNode Next
         {
-            get { throw new NotImplementedException(); }
+            get { return next; }
             set { throw new NotImplementedException(); }
         }
 
