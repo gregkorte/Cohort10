@@ -46,6 +46,17 @@ namespace Mathmagician
             return output.ToArray();
         }
 
+        //public int[] GetFibonacciSequence(int length)
+        //{
+        //    List<int> output = new List<int>();
+        //    output.Add(0);
+        //    while(output.Count < length)
+        //    {
+        //        output.Add(GetNext(output.Last()));
+        //    }
+        //    return output.ToArray();
+        //}
+
         public string ToString(int[] array)
         {
             string output = String.Join(" ", array);
