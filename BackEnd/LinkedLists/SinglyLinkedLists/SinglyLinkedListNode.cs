@@ -16,7 +16,13 @@ namespace SinglyLinkedLists
         public SinglyLinkedListNode Next
         {
             get { return next; }
-            set { next = value; }
+            set {
+                    if (this == value)
+                    {
+                        throw new ArgumentException("Next can't be this.");
+                    }
+                next = value;
+            }
         }
 
         private string value;
