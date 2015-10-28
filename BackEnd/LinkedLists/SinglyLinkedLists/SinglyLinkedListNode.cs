@@ -16,17 +16,18 @@ namespace SinglyLinkedLists
         public SinglyLinkedListNode Next
         {
             get { return next; }
-            set {
-                    if (this == value)
-                    {
-                        throw new ArgumentException("Next can't be this.");
-                    }
+            set
+            {
+                if (this == value)
+                {
+                    throw new ArgumentException("Next can't be this.");
+                }
                 next = value;
             }
         }
 
         private string value;
-        public string Value 
+        public string Value
         {
             get { return value; }
         }
@@ -69,6 +70,12 @@ namespace SinglyLinkedLists
         public override string ToString()
         {
             return value;
+        }
+
+        public override bool Equals(object obj)
+        {
+            SinglyLinkedListNode other = obj as SinglyLinkedListNode;
+            return other != null && this.Value.Equals(other.Value);
         }
     }
 }
