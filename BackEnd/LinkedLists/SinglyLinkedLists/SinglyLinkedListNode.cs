@@ -65,6 +65,8 @@ namespace SinglyLinkedLists
                 return true;
             }
             return false;
+
+            //OR return Next == null
         }
 
         public override string ToString()
