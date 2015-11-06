@@ -1,0 +1,58 @@
+﻿<Window x:Class="BoardViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BoardViewer"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <DataTemplate x:Key="CellTemplate">
+            <Border BorderThickness="2" BorderBrush="DarkGray" CornerRadius="2" Width="20" Height="20" >
+                <Rectangle Width="16">
+                    <Rectangle.Style>
+                        <Style TargetType="Rectangle">
+                            <Setter Property="Fill" Value="LightGreen" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding}"
+                             Value="False">
+                                    <Setter Property="Fill" Value="Pink" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Rectangle.Style>
+                </Rectangle>
+            </Border>
+        </DataTemplate>
+        
+        <Style x:Key="HorizontalListBox">
+            <Setter Property="ListBox.ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <DataTemplate x:Key="RowTemplate">
+            <ItemsControl BorderThickness="0" 
+                       ItemsSource="{Binding}" 
+                       Style="{StaticResource HorizontalListBox}" 
+                       ItemTemplate="{StaticResource CellTemplate}" />
+        </DataTemplate>
+    </Window.Resources>
+    <DockPanel LastChildFill="True" Margin="5">
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
+            <Button x:Name="TickButton" Content="Tick" Margin="0" Click="Tick_Button_Click" />
+            <Button x:Name="RunButton" Content="Run" Margin="5,0,5,0" Click="Run_Button_Click" />
+            <Button x:Name="StopButton" Content="Stop" Margin="0" Click="Stop_Button_Click" IsEnabled="False" />
+            <Label Content="Speed:"/>
+            <xctk:DoubleUpDown x:Name="RunSpeed" Value="0.50" Increment="0.25" Minimum="0.25" ValueChanged="RunSpeed_ValueChanged" IsEnabled="False" />
+        </StackPanel>
+
+        <ItemsControl x:Name="TheListView" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" ItemTemplate="{StaticResource RowTemplate}">
+        </ItemsControl>
+    </DockPanel>
+</Window>
