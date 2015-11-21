@@ -13,11 +13,14 @@ namespace Jitter.Models
         [Required]
         [MaxLength(20)]
         [MinLength(3)]
+        [RegularExpression(@"^[a-zA-Z\d]+[-_a-zA-Z\d]{0,2}[a-zA-Z\d]+")]
         public string Handle { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Picture { get; set; }
         [MaxLength(161)]
         public string Description { get; set; }
+        public List<Jot> Jots { get; set; }
+        public List<JitterUser> Following { get; set; }
     }
 }
