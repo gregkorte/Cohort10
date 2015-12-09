@@ -4,23 +4,62 @@ using Jitter.Models;
 using System.Collections.Generic;
 using Moq;
 using System.Data.Entity;
+using System.Linq;
 
 namespace Jitter.Tests.Models
 {
     [TestClass]
     public class JitterRepositoryTests
     {
+        private Mock<JitterContext> mock_context;
+        private Mock<DbSet<JitterUser>> mock_set;
+        private JitterRepository repository;
+
+        private void ConnectMocksToDataStore(IEnumerable<JitterUser> data_store)
+        {
+            var data_source = data_store.AsQueryable<JitterUser>();
+            // HINT HINT: var data_source = (data_store as IEnumerable<JitterUser>).AsQueryable();
+            // Convince LINQ that our Mock DbSet is a (relational) Data store.
+
+            mock_set.As<IQueryable<JitterUser>>().Setup(data => data.Provider).Returns(data_source.Provider);
+
+            mock_set.As<IQueryable<JitterUser>>().Setup(data => data.Expression).Returns(data_source.Expression);
+
+            mock_set.As<IQueryable<JitterUser>>().Setup(data => data.ElementType).Returns(data_source.ElementType);
+
+            mock_set.As<IQueryable<JitterUser>>().Setup(data => data.GetEnumerator()).Returns(data_source.GetEnumerator());
+
+            // This is stubbing the JitterUsers property getter
+
+            mock_context.Setup(a => a.JitterUsers).Returns(mock_set.Object);
+        }
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            mock_context = new Mock<JitterContext>();
+            mock_set = new Mock<DbSet<JitterUser>>();
+            repository = new JitterRepository(mock_context.Object);
+        }
+
+        [TestCleanup]
+        public void CleanUp()
+        {
+            mock_context = null;
+            mock_set = null;
+            repository = null;
+        }
+
         [TestMethod]
         public void JitterContextEnsureICanCreateInstance()
         {
-            JitterContext context = new JitterContext();
+            JitterContext context = mock_context.Object;
             Assert.IsNotNull(context);
         }
 
         [TestMethod]
         public void JitterRepositoryEnsureICanCreateInstance()
         {
-            JitterRepository repository = new JitterRepository();
             Assert.IsNotNull(repository);
         }
 
@@ -33,20 +72,17 @@ namespace Jitter.Tests.Models
                 new JitterUser { Handle = "solo1" },
                 new JitterUser { Handle = "chewie1" }
             };
-            Mock<JitterContext> mock_context = new Mock<JitterContext>();
-            Mock<DbSet<JitterUser>> mock_set = new Mock<DbSet<JitterUser>>();
 
             mock_set.Object.AddRange(expected);
 
-            // This is Stubbing the JitterUsers property getter
-            mock_context.Setup(a => a.JitterUsers).Returns(mock_set.Object);
-            JitterRepository repository = new JitterRepository(mock_context.Object);
+            ConnectMocksToDataStore(expected);
 
             //Act
             var actual = repository.GetAllUsers();
 
             //Assert
-            //Assert.AreEqual("solo1", actual.First().Handle);
+            Assert.AreEqual("solo1", actual.First().Handle);
+
             CollectionAssert.AreEqual(expected, actual);
         }
 
@@ -54,7 +90,7 @@ namespace Jitter.Tests.Models
         public void JitterRepositoryEnsureIHaveAContext()
         {
             // Arrange
-            JitterRepository repository = new JitterRepository();
+            
 
             // Act
             var actual = repository.Context;
