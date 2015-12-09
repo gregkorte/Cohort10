@@ -11,6 +11,8 @@ namespace Jitter.Tests.Models
     [TestClass]
     public class JitterRepositoryTests
     {
+        // Bulk of second commit
+
         private Mock<JitterContext> mock_context;
         private Mock<DbSet<JitterUser>> mock_set;
         private JitterRepository repository;
