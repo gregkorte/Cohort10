@@ -146,7 +146,7 @@ namespace Jitter.Tests.Models
         }
 
         [TestMethod]
-        [ExpectedException(typeof(invalidOperationException))]
+        [ExpectedException(typeof(InvalidOperationException))]
         public void JitterRepositoryGetUserByHandleFailsMultipleUsers()
         {
             // Arrange
@@ -220,7 +220,7 @@ namespace Jitter.Tests.Models
                 new JitterUser { Handle = "solo1" }
             };
 
-            mock_set.ObjectAddRange(expected);
+            mock_set.Object.AddRange(expected);
 
             // Act
             string handle = "solo1";
@@ -248,7 +248,7 @@ namespace Jitter.Tests.Models
 
             // Act
             string handle = "skywalker";
-            List<JitterUser> expected_users new List<JitterUser>
+            List<JitterUser> expected_users = new List<JitterUser>
             {
                 new JitterUser { Handle = "lukeskywalker1" },
                 new JitterUser { Handle = "anikinskywalker1" }
