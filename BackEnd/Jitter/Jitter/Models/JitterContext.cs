@@ -8,7 +8,8 @@ namespace Jitter.Models
 {
     public class JitterContext : DbContext
     {
-        public DbSet<JitterUser> JitterUsers { get; set; }
-        public DbSet<Jot> Jots { get; set; }
+        // IDbSet, IQueryable
+        public virtual DbSet<JitterUser> JitterUsers { get; set; }
+        public virtual DbSet<Jot> Jots { get; set; }
     }
 }

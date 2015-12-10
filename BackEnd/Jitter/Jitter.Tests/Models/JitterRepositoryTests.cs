@@ -11,10 +11,9 @@ namespace Jitter.Tests.Models
     [TestClass]
     public class JitterRepositoryTests
     {
-        // Bulk of second commit
-
         private Mock<JitterContext> mock_context;
         private Mock<DbSet<JitterUser>> mock_set;
+        private Mock<DbSet<Jot>> mock_jot_set;
         private JitterRepository repository;
 
         private void ConnectMocksToDataStore(IEnumerable<JitterUser> data_store)
@@ -36,11 +35,32 @@ namespace Jitter.Tests.Models
             mock_context.Setup(a => a.JitterUsers).Returns(mock_set.Object);
         }
 
+        private void ConnectMocksToDataStore(IEnumerable<Jot> data_store)
+        {
+            var data_source = data_store.AsQueryable<Jot>();
+
+            // HINT HINT: var data_source = (data_store as IEnumerable<Jot>).AsQueryable();
+            // Convince LINQ that out Mock DbSet is a (relational) Data store.
+
+            mock_jot_set.As<IQueryable<Jot>>().Setup(data => data.Provider).Returns(data_source.Provider);
+
+            mock_jot_set.As<IQueryable<Jot>>().Setup(data => data.Expression).Returns(data_source.Expression);
+
+            mock_jot_set.As<IQueryable<Jot>>().Setup(data => data.ElementType).Returns(data_source.ElementType);
+
+            mock_jot_set.As<IQueryable<Jot>>().Setup(data => data_store.GetEnumerator()).Returns(data_source.GetEnumerator());
+
+            // This is stubbing the Jots property getter
+
+            mock_context.Setup(a => a.Jots).Returns(mock_jot_set.Object);
+        }
+
         [TestInitialize]
         public void Initialize()
         {
             mock_context = new Mock<JitterContext>();
             mock_set = new Mock<DbSet<JitterUser>>();
+            mock_jot_set = new Mock<DbSet<Jot>>();
             repository = new JitterRepository(mock_context.Object);
         }
 
@@ -49,6 +69,7 @@ namespace Jitter.Tests.Models
         {
             mock_context = null;
             mock_set = null;
+            mock_jot_set = null;
             repository = null;
         }
 
@@ -211,7 +232,7 @@ namespace Jitter.Tests.Models
         }
 
         [TestMethod]
-        public void JitterRepositoryEnsureHandleIsNotAvailableNultipleUsers()
+        public void JitterRepositoryEnsureHandleIsNotAvailableMultipleUsers()
         {
             // Arrange
             var expected = new List<JitterUser>
