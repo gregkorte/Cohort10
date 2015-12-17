@@ -11,7 +11,7 @@
 <p>Use this area to provide additional information.</p>
 
 <ul>
-    @foreach (var item in Model)
+    @foreach (var item in ViewBag.ListData as IEnumerable<string>)
     {
         <li>@item</li>
     }
