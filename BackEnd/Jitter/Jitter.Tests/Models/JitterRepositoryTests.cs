@@ -21,17 +21,12 @@ namespace Jitter.Tests.Models
             var data_source = data_store.AsQueryable<JitterUser>();
             // HINT HINT: var data_source = (data_store as IEnumerable<JitterUser>).AsQueryable();
             // Convince LINQ that our Mock DbSet is a (relational) Data store.
-
             mock_set.As<IQueryable<JitterUser>>().Setup(data => data.Provider).Returns(data_source.Provider);
-
             mock_set.As<IQueryable<JitterUser>>().Setup(data => data.Expression).Returns(data_source.Expression);
-
             mock_set.As<IQueryable<JitterUser>>().Setup(data => data.ElementType).Returns(data_source.ElementType);
-
             mock_set.As<IQueryable<JitterUser>>().Setup(data => data.GetEnumerator()).Returns(data_source.GetEnumerator());
 
             // This is stubbing the JitterUsers property getter
-
             mock_context.Setup(a => a.JitterUsers).Returns(mock_set.Object);
         }
 
@@ -41,17 +36,12 @@ namespace Jitter.Tests.Models
 
             // HINT HINT: var data_source = (data_store as IEnumerable<Jot>).AsQueryable();
             // Convince LINQ that out Mock DbSet is a (relational) Data store.
-
             mock_jot_set.As<IQueryable<Jot>>().Setup(data => data.Provider).Returns(data_source.Provider);
-
             mock_jot_set.As<IQueryable<Jot>>().Setup(data => data.Expression).Returns(data_source.Expression);
-
             mock_jot_set.As<IQueryable<Jot>>().Setup(data => data.ElementType).Returns(data_source.ElementType);
-
-            mock_jot_set.As<IQueryable<Jot>>().Setup(data => data_store.GetEnumerator()).Returns(data_source.GetEnumerator());
+            mock_jot_set.As<IQueryable<Jot>>().Setup(data => data.GetEnumerator()).Returns(data_source.GetEnumerator());
 
             // This is stubbing the Jots property getter
-
             mock_context.Setup(a => a.Jots).Returns(mock_jot_set.Object);
         }
 
@@ -174,7 +164,7 @@ namespace Jitter.Tests.Models
             var expected = new List<JitterUser>
             {
                 new JitterUser { Handle = "solo1" },
-                new JitterUser { Handle = "chewie1" }
+                new JitterUser { Handle = "solo1" }
             };
 
             mock_set.Object.AddRange(expected);
@@ -199,6 +189,8 @@ namespace Jitter.Tests.Models
             };
 
             mock_set.Object.AddRange(expected);
+
+            ConnectMocksToDataStore(expected);
 
             // Act
             string handle = "bogus";
@@ -243,6 +235,8 @@ namespace Jitter.Tests.Models
 
             mock_set.Object.AddRange(expected);
 
+            ConnectMocksToDataStore(expected);
+
             // Act
             string handle = "solo1";
             bool is_available = repository.IsHandleAvailable(handle);
@@ -259,8 +253,8 @@ namespace Jitter.Tests.Models
             {
                 new JitterUser { Handle = "solo1" },
                 new JitterUser { Handle = "chewie1" },
-                new JitterUser { Handle = "lukeskywalker1" },
-                new JitterUser { Handle = "anakinskywalker1" }
+                new JitterUser { Handle = "anakinskywalker1" },
+                new JitterUser { Handle = "lukeskywalker1" }
             };
 
             mock_set.Object.AddRange(expected);
@@ -271,8 +265,8 @@ namespace Jitter.Tests.Models
             string handle = "skywalker";
             List<JitterUser> expected_users = new List<JitterUser>
             {
-                new JitterUser { Handle = "lukeskywalker1" },
-                new JitterUser { Handle = "anakinskywalker1" }
+                new JitterUser { Handle = "anakinskywalker1" },
+                new JitterUser { Handle = "lukeskywalker1" }
             };
             
             List<JitterUser> actual_users = repository.SearchByHandle(handle);
@@ -292,10 +286,9 @@ namespace Jitter.Tests.Models
             // Arrange
             var expected = new List<JitterUser>
             {
-                new JitterUser { Handle = "solo1", FirstName = "Han", LastName = "Solo" },
-                new JitterUser { Handle = "chewie1", FirstName = "Chew", LastName = "Bacca" },
-                new JitterUser { Handle = "lukeskywalker1", FirstName = "Luke", LastName = "Skywalker" },
-                new JitterUser { Handle = "anakinskywalker1", FirstName = "Anakin", LastName = "Skywalker" }
+                new JitterUser { Handle = "solo1", FirstName = "Han", LastName = "Sandler" },
+                new JitterUser { Handle = "chewie1", FirstName = "Sandy", LastName = "Bacca" },
+                new JitterUser { Handle = "lukeskywalker1", FirstName = "Luke", LastName = "Sandwalker" }
             };
 
             mock_set.Object.AddRange(expected);
@@ -303,23 +296,21 @@ namespace Jitter.Tests.Models
             ConnectMocksToDataStore(expected);
 
             // Act
-            string search_term = "sky";
+            string search_term = "sand";
 
             List<JitterUser> expected_users = new List<JitterUser>
             {
-                new JitterUser { Handle = "solo1", FirstName = "Han", LastName = "Solo" },
-                new JitterUser { Handle = "chewie1", FirstName = "Chew", LastName = "Bacca" },
-                new JitterUser { Handle = "lukeskywalker1", FirstName = "Luke", LastName = "Skywalker" },
-                new JitterUser { Handle = "anakinskywalker1", FirstName = "Anakin", LastName = "Skywalker" }
+                new JitterUser { Handle = "solo1", FirstName = "Han", LastName = "Sandler" },
+                new JitterUser { Handle = "chewie1", FirstName = "Sandy", LastName = "Bacca" },
+                new JitterUser { Handle = "lukeskywalker1", FirstName = "Luke", LastName = "Sandwalker" }
             };
 
             List<JitterUser> actual_users = repository.SearchByName(search_term);
 
             // Assert
-            Assert.AreEqual(expected_users[0].Handle, actual_users[0].Handle);
-            Assert.AreEqual(expected_users[1].Handle, actual_users[1].Handle);
-            Assert.AreEqual(expected_users[2].Handle, actual_users[2].Handle);
-            Assert.AreEqual(expected_users[3].Handle, actual_users[3].Handle);
+            Assert.AreEqual(expected_users[0].Handle, actual_users[2].Handle);
+            Assert.AreEqual(expected_users[1].Handle, actual_users[0].Handle);
+            Assert.AreEqual(expected_users[2].Handle, actual_users[1].Handle);
         }
 
         [TestMethod]
