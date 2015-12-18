@@ -8,7 +8,8 @@ namespace Jitter.Models
 {
     public class Jot : IComparable
     {
-        public JitterUser Author { get; set; }
+        // add keyword 'virtual'
+        public virtual JitterUser Author { get; set; }
         [Key]
         public int JotId { get; set; }
         [Required]

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Jitter.Models
 {
-    public class JitterContext : DbContext
+    public class JitterContext : ApplicationDbContext
     {
         // IDbSet, IQueryable
         public virtual DbSet<JitterUser> JitterUsers { get; set; }
