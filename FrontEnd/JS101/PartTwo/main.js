@@ -4,6 +4,23 @@ var footer = document.getElementById('footer');
 
 header.innerHTML = "<h1>JavaScript Exercises</h1>"
 
+//Sonnet Exercise//
+var sonnetOutput = document.getElementById('sonnetOutput');
+var sonnet = document.getElementById('sonnet');
+var sonnetBtn = document.getElementById('btn_sonnet');
+var text = document.getElementById('sonnet').innerHTML;
+var length = text.length;
+var orphans = text.search("orphans");
+var result = '';
+sonnetOutput.innerHTML += ("<p>'orphans' is located at position " + orphans + "." + "</p>" + "<p>There are " + length + " characters in the sonnet.");
+
+sonnetBtn.onclick = function manipulateString(){
+	sonnet.innerHTML = text.replace('winter','yuletide');
+	var yuletide = sonnet.innerHTML;
+	result = yuletide.replace(/\bthe\b/gi, 'a large');
+	sonnet.innerHTML = result;
+}
+
 //Reindeer Exercise//
 var colors = ["Blue", "Red", "Orange", "Purple", "Hazel", "Aquamarine", "Periwinkle", "Azure", "Fuchsia", "Chocolate", "Amber", "Amaranth"];
 var reindeer = ["Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"];
@@ -50,6 +67,42 @@ function bandsAndVeggies(){
 	}
 }
 bandsAndVeggies();
+
+//Coin counting//
+var coinCounterBtn = document.getElementById('btn_coinCounter');
+
+coinCounterBtn.onclick = function coinCounter() {
+	var value = document.getElementById('coin_input').value;
+  var coinPurse = {};
+
+  coinPurse.quarters = 0;
+  coinPurse.dimes = 0;
+  coinPurse.nickels = 0;
+  coinPurse.pennies = 0;
+
+  for(var i = value; i > 0; i = (((i*10) - (j*10))/10).toFixed(2)){
+  	if(i >= .25){
+  		j = .25;
+  		console.log(i)
+  		coinPurse.quarters++;
+  	} else if(i >= .10){
+  		j = .10;
+  		console.log(i)
+  		coinPurse.dimes++;
+  	} else if(i >= .05){
+  		j = .05;
+  		console.log(i)
+  		coinPurse.nickels++
+  	} else{
+  		j = .01;
+  		console.log(i)
+  		coinPurse.pennies++
+  	}
+  }
+
+  var output = document.getElementById('coins');
+  output.innerHTML = "<p>" + coinPurse.quarters + " quarters</p><p>" + coinPurse.dimes + " dimes</p><p>" + coinPurse.nickels + " nickels</p><p>" + coinPurse.pennies + " pennies</p>"
+}
 
 //Grade sorting//
 var g = document.getElementById("grades");
@@ -106,6 +159,7 @@ function getHighest(a) {
 	h.innerHTML = "<p>The highest score is: " + a[a.length -1] + "</p>"
 }
 getHighest(a);
+
 
 //No Remainder//
 // var primes = [2, 3, 5, 7];
