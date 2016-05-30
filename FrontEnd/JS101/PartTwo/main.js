@@ -17,7 +17,7 @@ sonnetOutput.innerHTML += ("<p>'orphans' is located at position " + orphans + ".
 sonnetBtn.onclick = function manipulateString(){
 	sonnet.innerHTML = text.replace('winter','yuletide');
 	var yuletide = sonnet.innerHTML;
-	result = yuletide.replace(/\bthe\b/gi, 'a large');
+	result = yuletide.replace(/the\b/gi, 'a large');
 	sonnet.innerHTML = result;
 }
 
